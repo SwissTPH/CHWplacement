@@ -1,0 +1,180 @@
+---
+title: "CHWplacement"
+subtitle: "A package to compute optimal CHW geographical placement scenarios"
+output: rmarkdown::html_vignette
+bibliography: bibliography.json
+vignette: >
+  %\VignetteIndexEntry{CHWplacement-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This R package contains functions that can be used to compute CHW placement scenarios, based on gridded population surfaces, friction surfaces and additional datasets such as GPS coordinates of existing health facilities.
+
+These functions are based on the CLSCP optimisation programme by @current_storbeck1988. Further details on the methodology can be found in the associated manuscript.
+
+```{r pressure, echo=FALSE, out.width = '60%'}
+knitr::include_graphics("model_cartoon.png")
+```
+
+
+The CHW placement scenarios are designed to find the minimum number of CHWs required to reach full population coverage under two constraints:
+
+1. the travel time between the CHWs and the households remains below a given time
+
+2. the population assigned to each CHW remains below a given threshold
+
+The algorithm provides the total number of CHWs required and their GPS positions.
+
+
+## How to use the package
+
+### First steps and preparation of model inputs
+First the package needs to be loaded.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(CHWplacement)
+```
+
+ The optimisation requires 5 inputs:
+                     
+ - **population.raster**: a population gridded surface, representing population distribution
+ 
+ - **friction.raster**: a friction surface (for example, the surface by @weiss2020 that can be downloaded from the malariaAtlas R package @malariaatlas_package), representing the difficulty to cross one pixel in the maps (e.g. in minutes to cross one meter)
+ 
+ - **access.raster**: a raster surface indicating areas to be included in the algorithm, e.g. accessibility to health facilities (for example, the surface by @weiss2020 that can be downloaded from the malariaAtlas R package @malariaatlas_package)
+ 
+ - **popurb.raster**: a raster surface indicating the positioning of urban areas (for example, as derived using the DefineUrban function) 
+ 
+ - **shp**: a polygon shapefile indicating the area to be considered for optimisation
+ 
+
+For this example, we will demonstrate with fictitious data, but the user's data should be used instead.
+```{r }
+  newproj= "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84"
+  pop.dummy=raster::raster( matrix(c(rep(30,125), rep(90,100)), ncol=15))
+  fric.dummy=raster::raster(matrix(rep(0.02,225), ncol=15))
+  acc.dummy=raster::raster(matrix(c(rep(30,175), rep(90,50)), byrow=T, ncol=15))
+  shp.dummy <- as(raster::extent(pop.dummy), 'SpatialPolygons')
+  raster::crs(pop.dummy)=newproj
+  raster::crs(fric.dummy)=newproj
+  raster::crs(acc.dummy)=newproj
+  names(acc.dummy)=""
+```
+
+The raster file indicating the position of urban areas can be created following the “degree of urbanization approach” described in the 2017 World Bank report -@world_bank_report to define urban and rural areas, with the **DefineUrban** function. The parameter **rururb_cutoff** indicates the minimum population density for each pixel considered as urban. The parameter **min_urbsize** indicates the minimum population in the total area of contiguous selected pixels to be considered as urban. The user can also use any raster file created with another methodology.
+
+```{r }
+  urb.dummy=DefineUrban(pop.dummy, rururb_cutoff = 50, min_urbsize = 1000)
+```
+
+We can first visualise this fictitious data, using the following plotting packages:
+
+```{r, message=FALSE, warning=FALSE }
+library(rasterVis)
+library(ggplot2)
+library(cowplot)
+plot_pop=gplot(pop.dummy)+
+  geom_tile(aes(fill=factor(value)), alpha=0.6) +coord_equal()+scale_fill_manual(values=c("#FF6600", "#990000"), name="Population")
+
+plot_acc=gplot(acc.dummy)+
+  geom_tile(aes(fill=factor(value)), alpha=0.6) +coord_equal()+scale_fill_manual(values=c("forestgreen", "darkorange"), name="Access")
+
+plot_urb=gplot(urb.dummy)+
+  geom_tile(aes(fill=factor(value)), alpha=0.6) +coord_equal()+scale_fill_manual( values=c("#990000"), name="Urban\npopulation")
+
+plot_fric=gplot(fric.dummy)+
+  geom_tile(aes(fill=factor(value)), alpha=0.6) +coord_equal()+scale_fill_manual(values=c("#FFCC00"), name="Friction")
+```
+
+In this fictitious population, we have 12750 people, 9000 of them living in an urban area. The sounthern areas is considered to be hard-to-reach (orange, as opposed to green). This represents 720 individuals in the rural area, and 2340 in the urban area. The friction is uniform.
+
+```{r, fig.width = 6, fig.align="center"}
+plot_grid(plot_pop, plot_fric, plot_acc, plot_urb)
+```
+
+### Creating a CHW placement scenario on a simple example
+These elements are combined to provide the minimal number of CHWs and their optimal geographical positioning to guarantee full population coverage verifying the following constraints:
+
+ - **Maximum travel time**: the travel time between the CHW and their assigned inhabitants remains below a certain time (called "radius")
+ 
+ - **Maximium population**: the maximal number of inhabitant per CHWs remains below a certain capacity threshold, that can differ in urban ("max.treat.per.CHW.urban") and rural ("max.treat.per.CHW.rural") areas
+ 
+ - **Area selection**: the analysis can be restricted to certain areas in the access.raster map via the "buffer" and "is.inside" parameters: for example if access.raster represents the travel time to health facilities in min, the analysis can restricted to areas situated at more than 60 min from any health facility (buffer=60 and is.inside=FALSE), or areas situated at less than 60 min from  from any health facility (buffer=60 and is.inside=TRUE)
+
+
+The CHW plan can be defined with the following function:
+```{r }
+CreateCHWplacement(population.raster=pop.dummy, friction.raster=fric.dummy,shp=shp.dummy,
+                     name="temp", buffer=60, radius=600, capacity.name="",
+                     access.raster=acc.dummy,popurb.raster=urb.dummy,
+                     max.treat.per.CHW.urban=5000, max.treat.per.CHW.rural=1000,
+                     max.CHW.per.pixel=10, is.inside = FALSE, filepath=".")
+
+```
+This function will create a file called temp.mps, stored in the repository indicated by filepath. This files contains the description of the optimisation problem, that can then be solved by an optimisation algorithm. For example, the problem can be solved in R with the lpSolveAPI package, with the following function:
+
+```{r }
+CHWanswer=solve_CHWplacement(population.raster=pop.dummy, friction.raster=fric.dummy,shp=shp.dummy,
+                                        name="temp", buffer=60, radius=600, capacity.name="",
+                                        access.raster=acc.dummy,popurb.raster=urb.dummy,
+                                        is.inside = FALSE, filepath=".")
+```
+3 CHWs are needed to cover the area.
+The package returns a new data.frame with one line per assigned CHW, with the associated GPS coordinates (x and y), whether their are positioned in rural area (is.rural=1 in rural areas and 0 in urban areas), and their associated number of people assigned (capacity). The sum of all CHW capacities is above the total population in the area, due to overallping catchment areas in this example.
+```{r }
+CHWanswer
+```
+We can represent these results graphically. To improve interpretability, we will plot a masked version of the population raster, where all areas not included in the analysis (following the buffer parameter) are replaced by NA. Such a map can be obtained as one of the oucomes of the function PrepareRasterFiles.
+
+```{r }
+all.rasters=PrepareRasterFiles(population.raster=pop.dummy, friction.raster=fric.dummy,shp=shp.dummy,
+                                        buffer=60, 
+                                        access.raster=acc.dummy,popurb.raster=urb.dummy,
+                                        is.inside = FALSE)
+
+```
+
+We use the rasters to represent the results graphically:
+
+```{r , fig.width = 5, fig.align="center"}
+gplot(all.rasters$pop.map)+
+  geom_tile(aes(fill=factor(value)), alpha=0.6) +scale_fill_manual(values=c("#FF6600", "#990000"), name="Population") + 
+  geom_point(data=CHWanswer, aes(x=x, y=y))+
+  coord_equal()
+
+```
+We can also plot the catchment area of each CHW and see that all population points are covered. These cathcment areas correspond to a distance of 600 min (radius) form the CHW location. The catchment areas do overlap, and in practice, they would need to be adapted individually knowing the local geographical context when CHWs are recruited.
+
+```{r , fig.width = 5, fig.align="center"}
+footprint1=GetFootprintWalkingTime(pos=CHWanswer[1,1:2], radius=600, pop.map=all.rasters$pop.map, T.GC=all.rasters$T.GC)
+footprint1b=raster::xyFromCell(all.rasters$pop.map,footprint1)
+footprint2=GetFootprintWalkingTime(pos=CHWanswer[2,1:2], radius=600, pop.map=all.rasters$pop.map, T.GC=all.rasters$T.GC)
+footprint2b=raster::xyFromCell(all.rasters$pop.map,footprint2)
+footprint3=GetFootprintWalkingTime(pos=CHWanswer[3,1:2], radius=600, pop.map=all.rasters$pop.map, T.GC=all.rasters$T.GC)
+footprint3b=raster::xyFromCell(all.rasters$pop.map,footprint3)
+
+gplot(all.rasters$pop.map)+
+  geom_tile(aes(fill=factor(value)), alpha=0.6) +scale_fill_manual(values=c("#FF6600", "#990000"), name="Population") + 
+  geom_point(data=as.data.frame(footprint1b), aes(x=x, y=y), color="darkblue")+
+  geom_point(data=as.data.frame(footprint2b), aes(x=x, y=y), color="dodgerblue")+
+  geom_point(data=as.data.frame(footprint3b), aes(x=x, y=y), color="lightblue")+
+  geom_point(data=CHWanswer, aes(x=x, y=y), size=2)+
+  coord_equal()
+
+```
+
+### Using the package in practice with large maps
+
+Solving the model with the R software and the lpSolveAPI package can become very computationally intense for the problems to be solved in practice (larger maps and more difficult optimisation constraints). In this context, other softwares can be used, such as @gurobi. The .mps file created previously can be used with this software, and the solution will be provided as a .sol file. This .sol file can be read with R using the function **read_CHWplacement_sol**.
+
+
+
+## References

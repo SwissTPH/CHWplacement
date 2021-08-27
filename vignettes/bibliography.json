@@ -1,0 +1,326 @@
+[
+	{
+		"id": "current_storbeck1988",
+		"type": "article-journal",
+		"container-title": "Environment and Planning B: Planning and Design",
+		"ISSN": "0265-8135",
+		"issue": "2",
+		"page": "153-163",
+		"title": "Capacitated covering models",
+		"volume": "15",
+		"author": [
+			{
+				"family": "Current",
+				"given": "John Richard"
+			},
+			{
+				"family": "Storbeck",
+				"given": "James Edward"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1988"
+				]
+			]
+		}
+	},
+
+
+
+		{
+		"id": "world_bank_report",
+		"type": "report",
+		"title": "Haitian cities: Actions for today with an eye on tomorrow",
+		"URL": "http://documents.worldbank.org/curated/en/709121516634280180/pdf/122880-V1-WP-P156561-OUO-9-FINAL-ENGLISH.pdf",
+		"author": [
+			{
+				"literal": "The World Bank"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					2,
+					5
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017"
+				]
+			]
+		}
+	},
+	{
+		"id": "weiss2020",
+		"type": "article-journal",
+		"container-title": "Nature Medicine",
+		"DOI": "10.1038/s41591-020-1059-1",
+		"ISSN": "1546-170X",
+		"language": "en",
+		"note": "publisher: Nature Publishing Group",
+		"page": "1-4",
+		"source": "www.nature.com",
+		"title": "Global maps of travel time to healthcare facilities",
+		"URL": "https://www.nature.com/articles/s41591-020-1059-1",
+		"author": [
+			{
+				"family": "Weiss",
+				"given": "D. J."
+			},
+			{
+				"family": "Nelson",
+				"given": "A."
+			},
+			{
+				"family": "Vargas-Ruiz",
+				"given": "C. A."
+			},
+			{
+				"family": "Gligorić",
+				"given": "K."
+			},
+			{
+				"family": "Bavadekar",
+				"given": "S."
+			},
+			{
+				"family": "Gabrilovich",
+				"given": "E."
+			},
+			{
+				"family": "Bertozzi-Villa",
+				"given": "A."
+			},
+			{
+				"family": "Rozier",
+				"given": "J."
+			},
+			{
+				"family": "Gibson",
+				"given": "H. S."
+			},
+			{
+				"family": "Shekel",
+				"given": "T."
+			},
+			{
+				"family": "Kamath",
+				"given": "C."
+			},
+			{
+				"family": "Lieber",
+				"given": "A."
+			},
+			{
+				"family": "Schulman",
+				"given": "K."
+			},
+			{
+				"family": "Shao",
+				"given": "Y."
+			},
+			{
+				"family": "Qarkaxhija",
+				"given": "V."
+			},
+			{
+				"family": "Nandi",
+				"given": "A. K."
+			},
+			{
+				"family": "Keddie",
+				"given": "S. H."
+			},
+			{
+				"family": "Rumisha",
+				"given": "S."
+			},
+			{
+				"family": "Amratia",
+				"given": "P."
+			},
+			{
+				"family": "Arambepola",
+				"given": "R."
+			},
+			{
+				"family": "Chestnutt",
+				"given": "E. G."
+			},
+			{
+				"family": "Millar",
+				"given": "J. J."
+			},
+			{
+				"family": "Symons",
+				"given": "T. L."
+			},
+			{
+				"family": "Cameron",
+				"given": "E."
+			},
+			{
+				"family": "Battle",
+				"given": "K. E."
+			},
+			{
+				"family": "Bhatt",
+				"given": "S."
+			},
+			{
+				"family": "Gething",
+				"given": "P. W."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					11,
+					3
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					9,
+					28
+				]
+			]
+		}
+	},
+	{
+		"id": "malariaatlas_package",
+		"type": "article-journal",
+		"container-title": "Malaria Journal",
+		"DOI": "10.1186/s12936-018-2500-5",
+		"ISSN": "1475-2875",
+		"issue": "1",
+		"journalAbbreviation": "Malar J",
+		"language": "en",
+		"note": "number: 1\npublisher: BioMed Central",
+		"page": "1-10",
+		"source": "malariajournal.biomedcentral.com",
+		"title": "malariaAtlas : an R interface to global malariometric data hosted by the Malaria Atlas Project",
+		"title-short": "malariaAtlas",
+		"URL": "https://malariajournal.biomedcentral.com/articles/10.1186/s12936-018-2500-5",
+		"volume": "17",
+		"author": [
+			{
+				"family": "Pfeffer",
+				"given": "Daniel A."
+			},
+			{
+				"family": "Lucas",
+				"given": "Timothy C. D."
+			},
+			{
+				"family": "May",
+				"given": "Daniel"
+			},
+			{
+				"family": "Harris",
+				"given": "Joseph"
+			},
+			{
+				"family": "Rozier",
+				"given": "Jennifer"
+			},
+			{
+				"family": "Twohig",
+				"given": "Katherine A."
+			},
+			{
+				"family": "Dalrymple",
+				"given": "Ursula"
+			},
+			{
+				"family": "Guerra",
+				"given": "Carlos A."
+			},
+			{
+				"family": "Moyes",
+				"given": "Catherine L."
+			},
+			{
+				"family": "Thorn",
+				"given": "Mike"
+			},
+			{
+				"family": "Nguyen",
+				"given": "Michele"
+			},
+			{
+				"family": "Bhatt",
+				"given": "Samir"
+			},
+			{
+				"family": "Cameron",
+				"given": "Ewan"
+			},
+			{
+				"family": "Weiss",
+				"given": "Daniel J."
+			},
+			{
+				"family": "Howes",
+				"given": "Rosalind E."
+			},
+			{
+				"family": "Battle",
+				"given": "Katherine E."
+			},
+			{
+				"family": "Gibson",
+				"given": "Harry S."
+			},
+			{
+				"family": "Gething",
+				"given": "Peter W."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2021",
+					2,
+					26
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					12
+				]
+			]
+		}
+	},
+		{
+		"id": "gurobi",
+		"type": "book",
+		"title": "Gurobi Optimizer Reference Manual",
+		"URL": "http://www.gurobi.com",
+		"author": [
+			{
+				"literal": "Gurobi Optimization, LLC"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	}
+]

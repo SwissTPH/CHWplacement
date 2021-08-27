@@ -1,0 +1,32 @@
+Package: CHWplacement
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Clara",
+           family = "Champagne",
+           role = c("aut", "cre"),
+           email = "clara.champagne@swisstph.ch")
+Description: This package contains functions to create optimised placement scenarios for Community Health Workers.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    ggplot2,
+    rasterVis,
+    cowplot
+Config/testthat/edition: 3
+Imports: 
+    raster,
+    sp,
+    rgdal,
+    rgeos,
+    gdistance,
+    lpSolveAPI,
+    digest,
+    R.utils
+VignetteBuilder: knitr
