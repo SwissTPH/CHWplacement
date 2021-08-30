@@ -10,7 +10,12 @@ The package can be installed using the devtools package:
 
 ```{r}
 library(devtools)  
-install_github("SwissTPH/CHWplacement")  
+install_github("SwissTPH/CHWplacement", build_vignettes = TRUE)  
 ```
 
-Further details on package use can be found in the vignette.
+The scripts necessary to reproduce the manuscript figures are situated under demo/haiti.  
+
+The vignette presenting how to use the package can be accessed with the following command:
+```{r}
+browseVignettes("CHWplacement")
+```
