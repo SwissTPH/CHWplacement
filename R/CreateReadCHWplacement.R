@@ -35,7 +35,7 @@ PrepareRasterFiles=function(population.raster, friction.raster,shp,
   access.map=raster::mask(raster::crop(access.raster, shp), shp)
   access.map=raster::projectRaster(access.map,pop.map)  # have the same extend and cell number as population raster
 
-  # compute the transition matrix
+  # compute the transition matrix, following method from Malaria Atlas Project
   TT <- gdistance::transition(friction.map, function(x) 1/mean(x), 8)
   T.GC <- gdistance::geoCorrection(TT)
 
