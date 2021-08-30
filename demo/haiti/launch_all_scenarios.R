@@ -1,4 +1,4 @@
-setwd(".")
+setwd(".") # to be updated with the corresponding path
 source("create_sh_scenarios.R")
 
 # scenario A

@@ -11,7 +11,10 @@ vignette: >
 
 This R package contains functions that can be used to compute CHW placement scenarios, based on gridded population surfaces, friction surfaces and additional datasets such as GPS coordinates of existing health facilities.
 
-These functions are based on the CLSCP optimisation programme by @current_storbeck1988. Further details on the methodology can be found in the associated manuscript.
+These functions are based on the CLSCP optimisation programme by @current_storbeck1988. Further details on the methodology can be found in the associated manuscript:  
+Champagne C., Rajkumar A. S. , Auxila P., Perrone G., Plötz M., Young A., Napier H.,Le Menach A., Battle K., Cameron E., Alfred J.P., Deslouches Y.G., Pothin E. **"Improving access to care and community health in Haiti with optimized community health worker placement."**
+
+
 
 ```{r pressure, echo=FALSE, out.width = '60%'}
 knitr::include_graphics("model_cartoon.png")

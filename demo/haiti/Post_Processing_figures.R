@@ -41,13 +41,13 @@ library(CHWplacement)
 ############################################################################
 
 ### Define input layers directory
-dirMain="."
-dirPlots=file.path(dirMain,"figures")
-dirInputs=file.path(dirMain,"input_data")
-dirOutputs=file.path(dirInputs, "outputs_CLSCP")
-dirSPA=file.path(dirInputs,"SPA")
+dirMain="."  # to be updated with the corresponding path
+dirPlots=file.path(dirMain,"figures") # to be updated with the desired path
+dirInputs=file.path(dirMain,"inputs")
+dirOutputs=file.path(dirMain, "outputs")
+dirSPA=file.path(dirInputs,"SPA") # to be updated with the corresponding path
 
-dirScripts="."
+dirScripts="." # to be updated with the corresponding path
 source(file.path(dirScripts,"functions_Post_Processing_figures.R"))
 
 ############################################################################
@@ -105,19 +105,19 @@ for (i in names(dpt.list2)){
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioB.CSLCP=rbind(CHW.positions.scenarioB.CSLCP,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS60_capa40004000clump300in1/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=0
   CHW.positions.scenarioCin.CSLCP=rbind(CHW.positions.scenarioCin.CSLCP,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS60_capa25001000clump300in0/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioCout.CSLCP=rbind(CHW.positions.scenarioCout.CSLCP,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS60_capa40001000clump300in1/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
@@ -376,7 +376,7 @@ total_per_category=data.frame(table(capacities.all$categories,capacities.all$sce
 print(total_per_category)
 
 # plot total CHW numbers
-total_per_category %>% 
+total_per_category %>%
   mutate(totalCHW2=ifelse(category=="Metropolitan", total_per_category$totalCHW, NA),
          category2=factor(category, levels=c("Metropolitan","Urban","Rural"))) %>%
   ggplot(aes(x = scenario, y = count, fill =scenario, alpha= category2)) +  # Create stacked bar chart
@@ -391,7 +391,7 @@ ggp2
 
 
 # plot average inh. per CHW
-test_df=capacities.all %>% 
+test_df=capacities.all %>%
   mutate(categories_merge=factor(ifelse(scenario=="A", as.character(categories),as.character(urbrur)),levels=c("Metropolitan","Urban","Rural")) ,
          scenario_far=ifelse(scenario %in% c("A"), scenario,paste0(scenario,"\n",close2CCS ))) %>%
   group_by(scenario,close2CCS,categories_merge,scenario_far) %>%
@@ -436,7 +436,7 @@ ggplot(test_df_plot, aes(x=x.seq, y=mean, fill=scenario_far, color=scenario_far,
 plot_average
 
 # compbine both plots
-plot2=plot_grid(ggp2+theme(legend.position = "none"),plot_average+theme(legend.position = "none"), 
+plot2=plot_grid(ggp2+theme(legend.position = "none"),plot_average+theme(legend.position = "none"),
                 labels=c("1.","2."),ncol=2,scale=0.9, rel_widths = c(0.6,1),label_size = 20 )
 legend <- get_legend(
   # create some space to the left of the legend
@@ -455,7 +455,7 @@ test_df_small_all=capacities.all %>% filter(scenario %in% c("C", "C2")) %>%
   mutate(scenario_far=paste0(scenario, "_Total"), close2CCS="Total", categories_merge="Metropolitan")
 
 # get totals per categories
-test_df_small=capacities.all %>% 
+test_df_small=capacities.all %>%
   mutate(categories_merge=factor(ifelse(scenario=="A", as.character(categories),as.character(urbrur)),levels=c("Metropolitan","Urban","Rural")),
          scenario_far=ifelse(scenario %in% c("A"), scenario,paste0(scenario,"\n",close2CCS )),
          is.small=(capacities<100)) %>%
@@ -475,13 +475,13 @@ test_df_plot_small%>%
   scale_fill_manual(values = c("darkorange", "darkgreen", "white","dodgerblue","dodgerblue", "white", "dodgerblue4", "dodgerblue4"), guide=F)+
   scale_color_manual(values = c("darkorange", "darkgreen", "dodgerblue", "dodgerblue4"), guide=F)+
   labs(y="% of all CHWs in scenario\nwith <100 assigned inh.", x="")+
-  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=5, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=6, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=7, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=8, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=9, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=10, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
+  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=5, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=6, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=7, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=8, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=9, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=10, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
   scale_x_continuous(breaks = c(1, 3, 6, 9), labels=c("A", "B", "C", "C2"))+
   scale_y_continuous(breaks = c(0, 0.5, 1, 1.5, 2, 2.5),labels = c("0%", "0.5%", "1%", "1.5%", "2%", "2.5%"), limits = c(-0.1,2.5))+
   theme_bw()+
@@ -504,7 +504,7 @@ test_df_threshold_ungroup= capacities.all %>%
          threshold1000=(categories_merge =="Rural" & close2CCS == "(far from\nCCS)") | (scenario=="C2" & close2CCS == "close to CCS" & categories_merge =="Rural"),
          test=as.numeric(threshold2500)+as.numeric(threshold4000)+as.numeric(threshold1000),
          is.threshold=((threshold4000 &is.threshold4000)|(is.threshold2500&threshold2500)|(is.threshold1000&threshold1000)),
-         threshold=ifelse(threshold4000, 4000, ifelse(threshold2500, 2500, 1000))) 
+         threshold=ifelse(threshold4000, 4000, ifelse(threshold2500, 2500, 1000)))
 
 # get totals per categories
 test_df_threshold= test_df_threshold_ungroup%>%
@@ -538,13 +538,13 @@ test_df_plot_threshold%>%
   geom_bar(stat="identity")+
   scale_fill_manual(values = c("darkorange", "darkgreen", "white","dodgerblue","dodgerblue", "white", "dodgerblue4", "dodgerblue4"), guide=F)+
   scale_color_manual(values = c("darkorange", "darkgreen", "dodgerblue", "dodgerblue4"), guide=F)+
-  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=5, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=6, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=7, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=8, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=9, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
-  geom_text(aes(x=10, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+ 
+  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=5, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=6, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=7, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=8, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=9, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=10, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
   scale_x_continuous(breaks = c(1, 3, 6, 9), labels=c("A", "B", "C", "C2"))+
   guides(pattern = guide_legend(override.aes = list(fill = "white")),
          alpha = guide_legend(override.aes = list(pattern = "none"))) +
@@ -556,7 +556,7 @@ test_df_plot_threshold%>%
 plot_threshold
 
 # combine both plots
-plot3=plot_grid(plot_threshold+theme(legend.position = "none"),plot_small+theme(legend.position = "none"), 
+plot3=plot_grid(plot_threshold+theme(legend.position = "none"),plot_small+theme(legend.position = "none"),
                 labels=c("1.","2."),ncol=2,scale=0.9,label_size = 20 )
 legend2 <- get_legend(  plot_threshold + theme(legend.box.margin = margin(0, 0, 0, 0), legend.position = "bottom"))
 all_3legend=plot_grid(plot3,legend,  ncol=1, rel_heights = c(1,0.07))
@@ -564,7 +564,7 @@ ggsave(all_3legend, file=file.path(dirPlots, "barplot_CHWprop_appendix.png"), wi
 
 
 
-######################## 
+########################
 # Descriptive stats
 # mean capacity per scenario
 capacities.all %>%
@@ -695,7 +695,7 @@ compare_data$departement[compare_data$departement=="Reste Ouest"]="Rest Ouest"
 
 p=ggplot( ) +
   geom_bar(
-    data = compare_data 
+    data = compare_data
     , aes(y = fct_reorder(departement, nbCHW), x = nbCHW, fill = case )
     , stat = "identity"
     , alpha = 0.5
@@ -792,17 +792,17 @@ for (i in names(dpt.list2)){
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_rad54=rbind(Cin_rad54,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_54_buffer60_capa25001000300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cout_rad54=rbind(Cout_rad54,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_66_buffer60_capa40004000300in1urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_rad66=rbind(Cin_rad66,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_66_buffer60_capa25001000300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
@@ -820,17 +820,17 @@ for (i in names(dpt.list2)){
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_buff54=rbind(Cin_buff54,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer54_capa25001000300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cout_buff54=rbind(Cout_buff54,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer66_capa40004000300in1urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_buff66=rbind(Cin_buff66,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer66_capa25001000300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
@@ -848,17 +848,17 @@ for (i in names(dpt.list2)){
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_capaP=rbind(Cin_capaP,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa27501100300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cout_capaP=rbind(Cout_capaP,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa36003600300in1urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_capaM=rbind(Cin_capaM,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa2250900300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
@@ -875,17 +875,17 @@ for (i in names(dpt.list2)){
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_clump270=rbind(Cin_clump270,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa25001000270in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cout_clump270=rbind(Cout_clump270,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa40004000330in1urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_clump330=rbind(Cin_clump330,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa25001000330in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
@@ -902,17 +902,17 @@ for (i in names(dpt.list2)){
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_urb2200=rbind(Cin_urb2200,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa25001000300in0urbs2200/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cout_urb2200=rbind(Cout_urb2200,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa40004000300in1urbs1800/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   Cin_urb1800=rbind(Cin_urb1800,this.data)
-  
+
   this.data=read.csv(file.path(dirOutputs,paste0("SA/clscp_60_buffer60_capa25001000300in0urbs1800/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
@@ -950,12 +950,12 @@ capacities.all.sensi=rbind(scenarioC %>% mutate(sensi1="rad", my.list.capa.here=
                            scenarioCurb1800 ,scenarioCurb2200 ) %>%
   mutate(categories=factor(ifelse(metro==1, "Metropolitan", ifelse(is.rural==1, "Rural", "Urban"))),
          urbrur=factor(ifelse(is.rural==0, "Urban", "Rural")),
-         close2CCS=factor(ifelse(out==0, "Close to\nCCS", "Far from\nCCS")), 
+         close2CCS=factor(ifelse(out==0, "Close to\nCCS", "Far from\nCCS")),
          updown=factor(updown, levels=c("-10%", "baseline", "+10%")),
          sensi=factor(sensi1, levels=c("bas","cap", "rad","buf","clu","urb"),
                       labels=c("Baseline","Max. population","Max. walking time","Distance to CCS","Min. density for\nurban areas", "Min. population\nfor urban areas") ),
          case=paste0(sensi1, "_",updown )
-         
+
   )
 
 
@@ -970,7 +970,7 @@ total_per_category_sensi=capacities.all.sensi %>%
   summarise(count=n())%>%
   left_join(total_per_scen_sensi, by="case") %>%
   mutate(prop=round(100*count/totalCHW),
-         totalCHW2=ifelse(categories=="Metropolitan",totalCHW, NA)) 
+         totalCHW2=ifelse(categories=="Metropolitan",totalCHW, NA))
 print(total_per_category_sensi)
 
 total_per_category_sensi %>%
@@ -1000,15 +1000,15 @@ tornado_plot=total_per_category_sensi %>%
          ymax=pmax(100*(totalCHW-base.value)/base.value,0),
          xmin=as.numeric(Parameter)-width/2,
          xmax=as.numeric(Parameter)+width/2) %>%
-  ggplot() + 
+  ggplot() +
   geom_rect(aes(ymax=ymax, ymin=ymin, xmax=xmax, xmin=xmin, fill=updown)) +
-  theme_bw() + 
+  theme_bw() +
   theme(axis.title.y=element_blank(), legend.position = 'bottom',
         axis.text.x = element_text(size=20),
         axis.text.y = element_text(size=20, face = "bold"),
         axis.title = element_text(size=20),
         legend.text = element_text(size=20),
-        legend.title = element_text(size=20)) + 
+        legend.title = element_text(size=20)) +
   geom_hline(yintercept = 0) +
   scale_x_continuous(breaks=c(1,2,3,4,5),
                      labels = c( "Min. population\nfor urban areas","Min. density for\nurban areas","Distance to CCS", "Max. walking time", "Max. population")) +

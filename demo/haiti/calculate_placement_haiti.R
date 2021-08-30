@@ -50,7 +50,6 @@ library(plyr)
 # SET UP DIRECTORY PATHS
 ############################################################################
 workingDir=workingDir
-dirScript=file.path(workingDir,"scripts")
 dirInputs=file.path(workingDir,"inputs")
 dirOutputs=file.path(workingDir,"outputs")
 
@@ -78,17 +77,17 @@ newproj <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0"
 
 ### Names of input layers
 #population
-pop.FileName=file.path(dirInputs,"/popadj.tif")
+pop.FileName=file.path(dirInputs,"/popadj.tif") # to be updated with the corresponding path
 
 #section communale shapefile
-seccom.NameFile=file.path(dirInputs,"Section Communale/HTIadm4poly.shp")
+seccom.NameFile=file.path(dirInputs,"Section Communale/HTIadm4poly.shp") # to be updated with the corresponding path
 
 # dowloading the friction surface. shp arguments speeds up by selecting only the pixels in the shapefile
-friction.FileName=file.path(dirInputs,"friction_surface_v47_wo.tif")
+friction.FileName=file.path(dirInputs,"friction_surface_v47_wo.tif") # to be updated with the corresponding path
 friction=raster(friction.FileName,proj4string = CRS(newproj))
 
 # list of health facilities in SPA survey
-point.locations.spa.FileName=file.path(dirInputs,"Haiti_SPA_GPSPTS_HTGE7BFLSR/HTGE7BFLSR.shp")
+point.locations.spa.FileName=file.path(dirInputs,"Haiti_SPA_GPSPTS_HTGE7BFLSR/HTGE7BFLSR.shp") # to be updated with the corresponding path
 
 
 ### Charging the data

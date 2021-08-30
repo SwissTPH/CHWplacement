@@ -5,13 +5,13 @@ batch_CHW_scenario <- function( radius, buffer, capaurb, caparur,
                                 dpt_init=1, dpt_end=14
                        , time = "1-00:00:00"
                        , mem = "50000"
-                       , qos_sub = "1day", mypath, workingdir
+                       , qos_sub = "1day", mypath="../outputs/", workingdir="."
 ){
-  capacity_name=paste0(capaurb,caparur,rururb_cutoff,"in",isinside,"urbs",minurbsize) 
+  capacity_name=paste0(capaurb,caparur,rururb_cutoff,"in",isinside,"urbs",minurbsize)
   repo=paste0("clscp_",radius,"_buffer",buffer,"_capa",capacity_name)
-  
+
   submitFileName <-file.path("batchfiles",paste0(name,"batch.sh"))
-  cat( 
+  cat(
   "#!/bin/bash
 #SBATCH --job-name=\"",name,"\"
 #SBATCH --mem=",mem,"# memory pool for all cores
@@ -33,7 +33,7 @@ radius=",radius,"
 minurbsize=",minurbsize,"
 capacity_name=\"",capacity_name,"\"
 repo=\"",repo,"\"
-workingdir=\"",workingdir,"\"
+workingdir=\"",normalizePath(workingdir),"\"
 
 
 module purge
@@ -56,7 +56,7 @@ module load GDAL
 Rscript ../calculate_placement_haiti.R $workingdir \"read\" $dpt_name $capacity_name $buffer $isinside $capaurb $caparur $rururb_cutoff $minurbsize $radius
 "    , sep = "", file = submitFileName
   )
-  
+
   system(paste0("cd batchfiles ; sbatch   ", name,"batch.sh"))
 
 }#end function
