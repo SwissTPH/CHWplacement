@@ -100,25 +100,25 @@ CHW.positions.scenarioCout.CSLCP=data.frame()
 CHW.positions.scenarioCin2.CSLCP=data.frame()
 for (i in names(dpt.list2)){
   print(i)
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS30_capa25001000clump300in0/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer30_capa25001000clump300in0/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioB.CSLCP=rbind(CHW.positions.scenarioB.CSLCP,this.data)
 
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS60_capa40004000clump300in1/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa40004000clump300in1/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=0
   CHW.positions.scenarioCin.CSLCP=rbind(CHW.positions.scenarioCin.CSLCP,this.data)
 
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS60_capa25001000clump300in0/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa25001000clump300in0/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioCout.CSLCP=rbind(CHW.positions.scenarioCout.CSLCP,this.data)
 
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS60_capa40001000clump300in1/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa40001000clump300in1/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=0
@@ -127,13 +127,13 @@ for (i in names(dpt.list2)){
 
 for (i in names(dpt.list2)[1:13]){
   print(i)
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS0_capa25001000clump300in0/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer0_capa25001000clump300in0/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioA.CSLCP=rbind(CHW.positions.scenarioA.CSLCP,this.data)
 }
-this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_SPACCS0_capa40004000clump300in0/positions_popcov_","AireMetro",".csv")))
+this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer0_capa40004000clump300in0/positions_popcov_","AireMetro",".csv")))
 this.data$metro=1
 this.data$out=1
 this.data$dpt="AireMetro"
@@ -290,8 +290,7 @@ colormapDTb2$label=colormapDTb2$value
 map_rururb<-PlotMap(population.urb.hai.dummy,Title.legend=" ",shpFile=seccom.shp,colormapDT=colormapDTrurub)
 map_rururb<-map_rururb+theme(legend.key.size = unit(0.8, "cm"),legend.position = c(0.12, 0.7),legend.text=element_text(size=10),legend.title=element_text(size=10))
 map_rururb
-ggsave(map_rururb, file=file.path(dirPlots,"rururb_national.jpg"), width=12,height=10, units = "cm")
-ggsave(map_rururb, file=file.path(dirPlots,"rururb_national.pdf"), width=12,height=10, units = "cm")
+ggsave(map_rururb, file=file.path(dirPlots,"S1_Fig.tiff"), width=12,height=10, units = "cm")
 
 
 seccom.shp.union2=SpatialPolygonsDataFrame(seccom.shp.union,data.frame(dpt=unique(seccom.shp$departement)), match.ID = F)
@@ -317,34 +316,34 @@ CHW.positions.scenarioC2.CSLCP=plot_scenario_all_cslscp(rbind(CHW.positions.scen
 
 
 plot_dpt_ouest=plot_dpt_summary("Ouest")
-ggsave(plot_dpt_ouest, file=file.path(dirPlots,"figure_all_Ouest.jpg"), width=12, height=7)
+ggsave(plot_dpt_ouest, file=file.path(dirPlots,"figure_all_Ouest.tiff"), width=12, height=7)
 
 plot_dpt_GA=plot_dpt_summary("GrandeAnse")
-ggsave(plot_dpt_GA, file=file.path(dirPlots,"figure_all_GrandeAnse.jpg"), width=12, height=7)
+ggsave(plot_dpt_GA, file=file.path(dirPlots,"figure_all_GrandeAnse.tiff"), width=12, height=7) # Fig2
 
 plot_dpt_Sud=plot_dpt_summary("Sud")
-ggsave(plot_dpt_Sud, file=file.path(dirPlots,"figure_all_Sud.jpg"), width=16, height=7)
+ggsave(plot_dpt_Sud, file=file.path(dirPlots,"figure_all_Sud.tiff"), width=16, height=7)
 
 plot_dpt_SudEst=plot_dpt_summary("SudEst")
-ggsave(plot_dpt_SudEst, file=file.path(dirPlots,"figure_all_SudEst.jpg"), width=16, height=7)
+ggsave(plot_dpt_SudEst, file=file.path(dirPlots,"figure_all_SudEst.tiff"), width=16, height=7)
 
 plot_dpt_Nord=plot_dpt_summary("Nord")
-ggsave(plot_dpt_Nord, file=file.path(dirPlots,"figure_all_Nord.jpg"), width=9, height=7)
+ggsave(plot_dpt_Nord, file=file.path(dirPlots,"figure_all_Nord.tiff"), width=9, height=7)
 
 plot_dpt_NordEst=plot_dpt_summary("NordEst")
-ggsave(plot_dpt_NordEst, file=file.path(dirPlots,"figure_all_NordEst.jpg"), width=9, height=7)
+ggsave(plot_dpt_NordEst, file=file.path(dirPlots,"figure_all_NordEst.tiff"), width=9, height=7)
 
 plot_dpt_NordOuest=plot_dpt_summary("NordOuest")
-ggsave(plot_dpt_NordOuest, file=file.path(dirPlots,"figure_all_NordOuest.jpg"), width=12, height=7)
+ggsave(plot_dpt_NordOuest, file=file.path(dirPlots,"figure_all_NordOuest.tiff"), width=12, height=7)
 
 plot_dpt_Centre=plot_dpt_summary("Centre")
-ggsave(plot_dpt_Centre, file=file.path(dirPlots,"figure_all_Centre.jpg"), width=10, height=7)
+ggsave(plot_dpt_Centre, file=file.path(dirPlots,"figure_all_Centre.tiff"), width=10, height=7)
 
 plot_dpt_Nippes=plot_dpt_summary("Nippes")
-ggsave(plot_dpt_Nippes, file=file.path(dirPlots,"figure_all_Nippes.jpg"), width=12, height=7)
+ggsave(plot_dpt_Nippes, file=file.path(dirPlots,"figure_all_Nippes.tiff"), width=12, height=7)
 
 plot_dpt_Artibonite=plot_dpt_summary("Artibonite")
-ggsave(plot_dpt_Artibonite, file=file.path(dirPlots,"figure_all_Artibonite.jpg"), width=9, height=9)
+ggsave(plot_dpt_Artibonite, file=file.path(dirPlots,"figure_all_Artibonite.tiff"), width=9, height=9)
 
 
 ##########################################################
@@ -443,7 +442,7 @@ legend <- get_legend(
   plot_average + theme(legend.box.margin = margin(0, 0, 0, 0), legend.position = "bottom")
 )
 all_2legend=plot_grid(plot2,legend,  ncol=1, rel_heights = c(1,0.07))
-ggsave(all_2legend, file=file.path(dirPlots, "barplot_CHWtotals_main.png"), width=30,height=16, units = "cm")
+ggsave(all_2legend, file=file.path(dirPlots, "Fig3.tiff"), width=30,height=16, units = "cm")
 
 
 # supplementary plot on the number of CHW with few inh.
@@ -560,7 +559,7 @@ plot3=plot_grid(plot_threshold+theme(legend.position = "none"),plot_small+theme(
                 labels=c("1.","2."),ncol=2,scale=0.9,label_size = 20 )
 legend2 <- get_legend(  plot_threshold + theme(legend.box.margin = margin(0, 0, 0, 0), legend.position = "bottom"))
 all_3legend=plot_grid(plot3,legend,  ncol=1, rel_heights = c(1,0.07))
-ggsave(all_3legend, file=file.path(dirPlots, "barplot_CHWprop_appendix.png"), width=35,height=16, units = "cm")
+ggsave(all_3legend, file=file.path(dirPlots, "S2_Fig.tiff"), width=35,height=16, units = "cm")
 
 
 
@@ -719,7 +718,7 @@ p=ggplot( ) +
         legend.text = element_text(size=16),
         legend.title  = element_text(size=16)) + guides(shape = guide_legend(override.aes = list(size = 5)))
 p
-ggsave(p, file=file.path(dirPlots,"barplot_compare_scenarios.jpg"), width=11, height=8)
+ggsave(p, file=file.path(dirPlots,"Fig4.tiff"), width=11, height=8)
 
 
 #############################
@@ -752,8 +751,7 @@ plot.GapscenarioC2.seccom=PlotGapScenarioSeccom(CHW.positions.scenarioC2.CSLCP[,
 plot.CHW.positions.scenarioC.CSLCP=plot_scenario_all_cslscp_plots(rbind(CHW.positions.scenarioCin.CSLCP,CHW.positions.scenarioCout.CSLCP), "scenarioC")
 
 figure5=plot_grid(plot.CHW.positions.scenarioC.CSLCP$map_seccom,plot.GapscenarioC.seccom$plot, labels=c("1.", "2.") )
-ggsave(figure5, file=file.path(dirPlots,"compare_scenario_seccom_C.pdf"), width=20,height=10, units = "cm")
-ggsave(figure5, file=file.path(dirPlots,"compare_scenario_seccom_C.png"), width=20,height=10, units = "cm")
+ggsave(figure5, file=file.path(dirPlots,"Fig5.pdf"), width=20,height=10, units = "cm")
 
 
 
@@ -764,13 +762,9 @@ plot.CHW.positions.scenarioC2.CSLCP=plot_scenario_all_cslscp_plots(rbind(CHW.pos
 figure5_A=plot_grid(plot.CHW.positions.scenarioA.CSLCP$map_seccom,plot.GapscenarioA.seccom$plot, labels=c("1.", "2.") )
 figure5_B=plot_grid(plot.CHW.positions.scenarioB.CSLCP$map_seccom,plot.GapscenarioB.seccom$plot, labels=c("1.", "2.") )
 figure5_C2=plot_grid(plot.CHW.positions.scenarioC2.CSLCP$map_seccom,plot.GapscenarioC2.seccom$plot, labels=c("1.", "2.") )
-ggsave(figure5_A, file=file.path(dirPlots,"compare_scenario_seccom_A.pdf"), width=20,height=10, units = "cm")
-ggsave(figure5_A, file=file.path(dirPlots,"compare_scenario_seccom_A.png"), width=20,height=10, units = "cm")
-ggsave(figure5_B, file=file.path(dirPlots,"compare_scenario_seccom_B.pdf"), width=20,height=10, units = "cm")
-ggsave(figure5_B, file=file.path(dirPlots,"compare_scenario_seccom_B.png"), width=20,height=10, units = "cm")
-ggsave(figure5_C2, file=file.path(dirPlots,"compare_scenario_seccom_C2.pdf"), width=20,height=10, units = "cm")
-ggsave(figure5_C2, file=file.path(dirPlots,"compare_scenario_seccom_C2.png"), width=20,height=10, units = "cm")
 
+figure5_all_supp=plot_grid(figure5_A, figure5_B, figure5_C2, nrow = 3)
+ggsave(figure5_all_supp, file=file.path(dirPlots,"S3_fig.tiff"), width=20,height=30, units = "cm", dpi=180)
 
 
 #=======================================================
@@ -1016,7 +1010,7 @@ tornado_plot=total_per_category_sensi %>%
   coord_flip()+ theme(plot.margin = unit(c(0,0,20,0), "lines"))
 
 sensi_tornado=plot_grid(ggp2_sensi, tornado_plot, rel_widths = c(1, 0.6), rel_heights = c(1, 0.6), scale = 0.9, labels = c("1.", "2."), label_size = 25)
-ggsave(sensi_tornado, file=file.path(dirPlots,"barplot_tornado.jpg"), width=19, height=15)
+ggsave(sensi_tornado, file=file.path(dirPlots,"S4_fig.tiff"), width=19, height=15)
 
 ######################################################
 # mean capacity per scenario per rural/urban/metropolitan
@@ -1042,7 +1036,7 @@ capacities.all.sensi %>% #filter(out==1)%>%
         strip.text = element_text(size = 18, face = "bold"),
         strip.background = element_rect(fill="white") ) -> plot_average_sensi
 plot_average_sensi
-ggsave(plot_average_sensi, file=file.path(dirPlots,"barplot_nb_inhab_per_CHW_sensiC_10pct.jpg"), width=19, height=15)
+ggsave(plot_average_sensi, file=file.path(dirPlots,"S5_Fig.tiff"), width=19, height=15)
 
 
 ################################################
@@ -1081,7 +1075,7 @@ p=ggplot(data=compare_sensi, aes(x=departement, y=nbCHW, color=updown)) +
         strip.text = element_text(size = 16, face = "bold"),
         strip.background = element_rect(fill="white") )
 p
-ggsave(p, file=file.path(dirPlots,"barplot_sensitivity_compare_C_10pct.jpg"), width=16, height=14)
+ggsave(p, file=file.path(dirPlots,"S6_Fig.tiff"), width=16, height=14)
 
 
 
