@@ -17,7 +17,7 @@ Champagne C., Rajkumar A. S. , Auxila P., Perrone G., Plötz M., Young A., Napie
 
 
 ```{r pressure, echo=FALSE, out.width = '60%'}
-knitr::include_graphics("model_cartoon.png")
+knitr::include_graphics("model_cartoon.PNG")
 ```
 
 
