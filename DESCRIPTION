@@ -28,5 +28,9 @@ Imports:
     gdistance,
     lpSolveAPI,
     digest,
-    R.utils
+    R.utils,
+    dplyr,
+    tidyr,
+    stringr,
+    magrittr
 VignetteBuilder: knitr

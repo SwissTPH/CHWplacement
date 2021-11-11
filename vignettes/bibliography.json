@@ -322,5 +322,267 @@
 				]
 			]
 		}
+	},
+	{
+		"id": "scip1",
+		"type": "report",
+		"genre": "Technical Report",
+		"publisher": "Optimization Online",
+		"title": "The SCIP Optimization Suite 7.0",
+		"URL": "http://www.optimization-online.org/DB_HTML/2020/03/7705.html",
+		"author": [
+			{
+				"family": "Gamrath",
+				"given": "Gerald"
+			},
+			{
+				"family": "Anderson",
+				"given": "Daniel"
+			},
+			{
+				"family": "Bestuzheva",
+				"given": "Ksenia"
+			},
+			{
+				"family": "Chen",
+				"given": "Wei-Kun"
+			},
+			{
+				"family": "Eifler",
+				"given": "Leon"
+			},
+			{
+				"family": "Gasse",
+				"given": "Maxime"
+			},
+			{
+				"family": "Gemander",
+				"given": "Patrick"
+			},
+			{
+				"family": "Gleixner",
+				"given": "Ambros"
+			},
+			{
+				"family": "Gottwald",
+				"given": "Leona"
+			},
+			{
+				"family": "Halbig",
+				"given": "Katrin"
+			},
+			{
+				"family": "Hendel",
+				"given": "Gregor"
+			},
+			{
+				"family": "Hojny",
+				"given": "Christopher"
+			},
+			{
+				"family": "Koch",
+				"given": "Thorsten"
+			},
+			{
+				"family": "Le Bodic",
+				"given": "Pierre"
+			},
+			{
+				"family": "Maher",
+				"given": "Stephen J."
+			},
+			{
+				"family": "Matter",
+				"given": "Frederic"
+			},
+			{
+				"family": "Miltenberger",
+				"given": "Matthias"
+			},
+			{
+				"family": "Mühmer",
+				"given": "Erik"
+			},
+			{
+				"family": "Müller",
+				"given": "Benjamin"
+			},
+			{
+				"family": "Pfetsch",
+				"given": "Marc E."
+			},
+			{
+				"family": "Schlösser",
+				"given": "Franziska"
+			},
+			{
+				"family": "Serrano",
+				"given": "Felipe"
+			},
+			{
+				"family": "Shinano",
+				"given": "Yuji"
+			},
+			{
+				"family": "Tawfik",
+				"given": "Christine"
+			},
+			{
+				"family": "Vigerske",
+				"given": "Stefan"
+			},
+			{
+				"family": "Wegscheider",
+				"given": "Fabian"
+			},
+			{
+				"family": "Weninger",
+				"given": "Dieter"
+			},
+			{
+				"family": "Witzig",
+				"given": "Jakob"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "scip2",
+		"type": "report",
+		"genre": "ZIB-Report",
+		"number": "20-10",
+		"publisher": "Zuse Institute Berlin",
+		"title": "The SCIP Optimization Suite 7.0",
+		"URL": "http://nbn-resolving.de/urn:nbn:de:0297-zib-78023",
+		"author": [
+			{
+				"family": "Gamrath",
+				"given": "Gerald"
+			},
+			{
+				"family": "Anderson",
+				"given": "Daniel"
+			},
+			{
+				"family": "Bestuzheva",
+				"given": "Ksenia"
+			},
+			{
+				"family": "Chen",
+				"given": "Wei-Kun"
+			},
+			{
+				"family": "Eifler",
+				"given": "Leon"
+			},
+			{
+				"family": "Gasse",
+				"given": "Maxime"
+			},
+			{
+				"family": "Gemander",
+				"given": "Patrick"
+			},
+			{
+				"family": "Gleixner",
+				"given": "Ambros"
+			},
+			{
+				"family": "Gottwald",
+				"given": "Leona"
+			},
+			{
+				"family": "Halbig",
+				"given": "Katrin"
+			},
+			{
+				"family": "Hendel",
+				"given": "Gregor"
+			},
+			{
+				"family": "Hojny",
+				"given": "Christopher"
+			},
+			{
+				"family": "Koch",
+				"given": "Thorsten"
+			},
+			{
+				"family": "Le Bodic",
+				"given": "Pierre"
+			},
+			{
+				"family": "Maher",
+				"given": "Stephen J."
+			},
+			{
+				"family": "Matter",
+				"given": "Frederic"
+			},
+			{
+				"family": "Miltenberger",
+				"given": "Matthias"
+			},
+			{
+				"family": "Mühmer",
+				"given": "Erik"
+			},
+			{
+				"family": "Müller",
+				"given": "Benjamin"
+			},
+			{
+				"family": "Pfetsch",
+				"given": "Marc E."
+			},
+			{
+				"family": "Schlösser",
+				"given": "Franziska"
+			},
+			{
+				"family": "Serrano",
+				"given": "Felipe"
+			},
+			{
+				"family": "Shinano",
+				"given": "Yuji"
+			},
+			{
+				"family": "Tawfik",
+				"given": "Christine"
+			},
+			{
+				"family": "Vigerske",
+				"given": "Stefan"
+			},
+			{
+				"family": "Wegscheider",
+				"given": "Fabian"
+			},
+			{
+				"family": "Weninger",
+				"given": "Dieter"
+			},
+			{
+				"family": "Witzig",
+				"given": "Jakob"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3
+				]
+			]
+		}
 	}
 ]
+

@@ -1,0 +1,31 @@
+*****  Manual use of SCIP version 7.0.3*****
+** Please enter the lines below one by one on the SCIP shell **
+ 
+set limits absgap 0
+read clscp_600_buffer60_capa/SCIPtemp.mps
+optimize
+write solution clscp_600_buffer60_capa/SCIPtemp_solutions.sol
+quit 
+ 
+ 
+*****  Automated use of SCIP version 7.0.3( for Windows users ) *****
+** Please enter the script below in windows powershell **
+ 
+Start-Process -FilePath 'C:/Program Files/SCIPOptSuite 7.0.3/bin/scip.exe'
+$wshell = New-Object -ComObject wscript.shell
+$wshell.SendKeys('%{TAB}')
+Sleep 2
+$wshell.SendKeys( 'set limits absgap 0' )
+$wshell.SendKeys('~')
+Sleep .3
+$wshell.SendKeys( 'read clscp_600_buffer60_capa/SCIPtemp.mps' )
+$wshell.SendKeys('~')
+Sleep 1
+$wshell.SendKeys('optimize' )
+$wshell.SendKeys('~')
+Wait-Process -Id $wshell.id
+$wshell.SendKeys( 'write solution clscp_600_buffer60_capa/SCIPtemp_solutions.sol' )
+$wshell.SendKeys('~')
+Sleep .5
+$wshell.SendKeys('quit')
+$wshell.SendKeys('~')

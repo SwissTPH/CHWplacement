@@ -3,7 +3,6 @@
 #'  using the lpsolveAPI package for integer programming.
 #' @param pop.map raster map containing population densities
 #' @param access.raster raster containing access to HF variable
-#' @param buffer buffer around current HF
 #' @param radius dimension of the radius around the point (same dimension as T.GC, e.g minutes)
 #' @param T.GC transition matrix T.CG associated to the map pop.map
 #' @param max.treat.per.CHW.urban max number of people per CHW in urban areas
@@ -16,7 +15,7 @@
 #' @return a MPS file containing the optimisation program
 #' @export
 #'
-OptiCLSCPWalkingTimeMPS=function(pop.map, access.raster, buffer,
+OptiCLSCPWalkingTimeMPS=function(pop.map, access.raster,
                                  radius, T.GC,
                                  popurb="none",
                                  max.treat.per.CHW.urban,max.treat.per.CHW.rural,
@@ -41,6 +40,11 @@ OptiCLSCPWalkingTimeMPS=function(pop.map, access.raster, buffer,
 
   ####
   # 3. set LP program
+
+  # Lp creation of MPS has a limitations on the format of its comlumne
+  # Thus the number of decision variables can't be more than 9 999 999
+  if (J+I*J> 9999999){ stop(" Too many decision var: Lp limitation ")}
+
   lprec <- lpSolveAPI::make.lp(0, J+I*J)
   lpSolveAPI::set.objfn(lprec,c(rep(1,I),rep(0,I*J)))  # objective is only based on demand points covered
   lpSolveAPI::set.bounds(lprec, lower = rep(0,J+I*J))  # lower bound is zero for all decision variables

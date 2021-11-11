@@ -28,13 +28,13 @@ CreateCHWplacement(
 
 \item{shp}{shapefile of the area of interest}
 
-\item{name}{name of the MPS file}
+\item{name}{name (character) of the MPS file}
 
 \item{buffer}{buffer around current HF}
 
 \item{radius}{dimension of the radius around the point (same dimension as T.GC, e.g minutes)}
 
-\item{capacity.name}{??}
+\item{capacity.name}{name (character) given to the capacity definition (for folder naming purposes)}
 
 \item{access.raster}{raster map containing the distance to HF layer}
 

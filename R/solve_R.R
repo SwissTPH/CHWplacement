@@ -30,7 +30,7 @@ solve_CHWplacement = function(population.raster,friction.raster,
                                 is.inside=is.inside)
   solution=lpSolveAPI::read.lp(paste0("./clscp_",radius,"_buffer",buffer,"_capa",capacity.name,"/",name,".mps"), type="mps")
 
-  if(lpSolveAPI::dim.lpExtPtr(solution)[2]>200000){stop("the program is too large to be solve with R")}
+  if(lpSolveAPI::dim.lpExtPtr(solution)[2]>200000){stop("the program is too large to be solved with R")}
   lpSolveAPI::solve.lpExtPtr(solution)
 
   total.CHW=lpSolveAPI::get.objective(solution)

@@ -33,8 +33,8 @@ test_that("solve with R", {
   expect_equal(CMWanswer, CHWanswer.expected, label = "test solve R", tolerance=1e-05)
 
 })
-
-### other test, but takes longer to run
+#
+# ## other test, but takes longer to run
 # test_that("solve with R", {
 #
 #   newproj= "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84"

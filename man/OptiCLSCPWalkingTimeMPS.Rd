@@ -7,7 +7,6 @@
 OptiCLSCPWalkingTimeMPS(
   pop.map,
   access.raster,
-  buffer,
   radius,
   T.GC,
   popurb = "none",
@@ -22,8 +21,6 @@ OptiCLSCPWalkingTimeMPS(
 \item{pop.map}{raster map containing population densities}
 
 \item{access.raster}{raster containing access to HF variable}
-
-\item{buffer}{buffer around current HF}
 
 \item{radius}{dimension of the radius around the point (same dimension as T.GC, e.g minutes)}
 

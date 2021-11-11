@@ -35,7 +35,7 @@ PrepareRasterFiles=function(population.raster, friction.raster,shp,
   access.map=raster::mask(raster::crop(access.raster, shp), shp)
   access.map=raster::projectRaster(access.map,pop.map)  # have the same extend and cell number as population raster
 
-  # compute the transition matrix, following method from Malaria Atlas Project
+  # compute the transition matrix
   TT <- gdistance::transition(friction.map, function(x) 1/mean(x), 8)
   T.GC <- gdistance::geoCorrection(TT)
 
@@ -62,8 +62,8 @@ PrepareRasterFiles=function(population.raster, friction.raster,shp,
 #' @param max.treat.per.CHW.rural max number of people per CHW in rural areas
 #' @param max.CHW.per.pixel maximum number of CHW that can be placed on the same pixel
 #' @param filepath directory where to store the MPS file
-#' @param name name of the MPS file
-#' @param capacity.name ??
+#' @param name name (character) of the MPS file
+#' @param capacity.name name (character) given to the capacity definition (for folder naming purposes)
 #'
 #' @return a MPS file containing the optimisation program
 #' @export
@@ -89,7 +89,7 @@ CreateCHWplacement=function(population.raster, friction.raster,shp,
   CHW.opti=OptiCLSCPWalkingTimeMPS(pop.map=all.raster$pop.map,
                                    access.raster=all.raster$access.map,
                                    popurb=all.raster$urb.map,
-                                   radius=radius,T.GC=all.raster$T.GC, name=name, buffer=buffer,
+                                   radius=radius,T.GC=all.raster$T.GC, name=name,
                                    directory=extendedpath,
                                    max.treat.per.CHW.urban=max.treat.per.CHW.urban,
                                    max.treat.per.CHW.rural=max.treat.per.CHW.rural,
@@ -112,9 +112,9 @@ CreateCHWplacement=function(population.raster, friction.raster,shp,
 #' @param radius dimension of the radius around the point (same dimension as T.GC, e.g minutes)
 #' @param is.inside whether CHW are placed inside the buffer (if FALSE, they are placed outside)
 #' @param filepath directory where to store the MPS file
-#' @param write f TRUE, the output is written as a csv file in filepath
-#' @param name name of the MPS file
-#' @param capacity.name ??
+#' @param write if TRUE, the output is written as a csv file in filepath
+#' @param name  name (character) of the MPS file
+#' @param capacity.name name (character) given to the capacity definition (for folder naming purposes)
 #'
 #' @return a MPS file containing the optimisation program
 #' @export
