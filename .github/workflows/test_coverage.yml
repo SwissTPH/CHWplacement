@@ -1,0 +1,53 @@
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+name: test-coverage
+
+jobs:
+  test-coverage:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@v1
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v1
+        with:
+          extra-packages: covr
+
+      - name: Test coverage
+        run: covr::package_coverage()
+        shell: Rscript {0}
+
+      - name: Generate code coverage
+        run: |
+          set -x
+          R -e 'covr::package_coverage()' &> out.txt
+          total=$(grep "Coverage: " out.txt | grep -oP "(\d+\.\d+)")
+          if (( $(echo "$total <= 30" | bc -l) )) ; then
+            COLOR=red
+          elif (( $(echo "$total > 80" | bc -l) )); then
+            COLOR=green
+          else
+            COLOR=orange
+          fi
+          echo "TOTAL=$(echo "$total"%)" >> $GITHUB_ENV
+          echo "COLOR=$(echo "$COLOR")" >> $GITHUB_ENV
+      - name: Create code coverage badge
+        uses: schneegans/dynamic-badges-action@v1.1.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 707efd2ae8c68b74d64456c6bc6206cc
+          filename: cover.json
+          label: coverage
+          message: ${{ env.TOTAL }}
+          color: ${{ env.COLOR }}
+          style: flat-square
