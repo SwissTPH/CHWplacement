@@ -1,5 +1,6 @@
-![Build status: main](https://img.shields.io/github/workflow/status/SwissTPH/VivaxModelR/R-CMD-check/main?style=flat-square)
-![Latest commit](https://img.shields.io/github/last-commit/SwissTPH/VivaxModelR/main?style=flat-square)
+![Build status: main](https://img.shields.io/github/workflow/status/SwissTPH/CHWplacement/R-CMD-check/main?style=flat-square)
+![Latest commit](https://img.shields.io/github/last-commit/SwissTPH/CHWplacement/main?style=flat-square)
+![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/clchampag/0ee1b8b341f3cca754974cab9bf9892b/raw/chw.json)
 
 
 # CHWplacement
