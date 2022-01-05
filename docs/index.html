@@ -72,7 +72,7 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<p><img src="https://img.shields.io/github/workflow/status/SwissTPH/VivaxModelR/R-CMD-check/main?style=flat-square" alt="Build status: main"><img src="https://img.shields.io/github/last-commit/SwissTPH/VivaxModelR/main?style=flat-square" alt="Latest commit"></p>
+<p><img src="https://img.shields.io/github/workflow/status/SwissTPH/CHWplacement/R-CMD-check/main?style=flat-square" alt="Build status: main"><img src="https://img.shields.io/github/last-commit/SwissTPH/CHWplacement/main?style=flat-square" alt="Latest commit"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/clchampag/0ee1b8b341f3cca754974cab9bf9892b/raw/chw.json" alt="coverage"></p>
 <div id="chwplacement" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#chwplacement" class="anchor"></a>CHWplacement</h1></div>
@@ -80,10 +80,9 @@
 <p>This code is associated with the following manuscript: Champagne C., Rajkumar A. S. , Auxila P., Perrone G., Plötz M., Young A., Napier H.,Le Menach A., Battle K., Cameron E., Alfred J.P., Deslouches Y.G., Pothin E. <strong>“Improving access to care and community health in Haiti with optimized community health worker placement.”</strong></p>
 <p>The package can be installed using the devtools package:</p>
 <pre class="{r}"><code><a href="https://devtools.r-lib.org/">library(devtools)  
-install_github("SwissTPH/CHWplacement", build_vignettes = TRUE)  </a></code></pre>
-<p>The vignette presenting how to use the package can be accessed with the following command:</p>
-<pre class="{r}"><code><a href="https://rdrr.io/r/utils/browseVignettes.html">browseVignettes("CHWplacement")</a></code></pre>
-<p>The scripts necessary to reproduce the manuscript figures are situated under demo/haiti. The code is designed for running on a high performance cluster (HPC) with the slurm job scheduler. The scenarios are launched from the file called launch_all_scenarios.R and requires that the input data is stored in a sub-folder called inputs. The code for visualizing the outputs and reproduce the manuscript figures is in Post_Processing_figures.</p>
+install_github("SwissTPH/CHWplacement")  </a></code></pre>
+<p>The vignette presenting how to use the package can be accessed <a href="https://swisstph.github.io/CHWplacement/articles/CHWplacement-vignette.html">here</a>.</p>
+<p>The scripts necessary to reproduce the manuscript figures are situated under <a href="https://github.com/SwissTPH/CHWplacement/tree/main/demo/haiti">demo/haiti</a>. The code is designed for running on a high performance cluster (HPC) with the slurm job scheduler. The scenarios are launched from the file called launch_all_scenarios.R and requires that the input data is stored in a sub-folder called inputs. The code for visualizing the outputs and reproduce the manuscript figures is in Post_Processing_figures.</p>
 </div>
 
   </div>

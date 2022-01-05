@@ -17,7 +17,7 @@ The package can be installed using the devtools package:
 library(devtools)  
 install_github("SwissTPH/CHWplacement")  
 ```
-The vignette presenting how to use the package can be accessed.
+The vignette presenting how to use the package can be accessed [here](https://swisstph.github.io/CHWplacement/articles/CHWplacement-vignette.html).
 
-The scripts necessary to reproduce the manuscript figures are situated under demo/haiti.  The code is designed for running on a high performance cluster (HPC) with the slurm job scheduler. The scenarios are launched from the file called launch_all_scenarios.R and requires that the input data is stored in a sub-folder called inputs. The code for visualizing the outputs and reproduce the manuscript figures is in Post_Processing_figures.
+The scripts necessary to reproduce the manuscript figures are situated under [demo/haiti](https://github.com/SwissTPH/CHWplacement/tree/main/demo/haiti).  The code is designed for running on a high performance cluster (HPC) with the slurm job scheduler. The scenarios are launched from the file called launch_all_scenarios.R and requires that the input data is stored in a sub-folder called inputs. The code for visualizing the outputs and reproduce the manuscript figures is in Post_Processing_figures.
 
