@@ -1,0 +1,719 @@
+[
+	{
+		"id": "facebook_data",
+		"type": "report",
+		"title": "Facebook Connectivity Lab and Center for International Earth Science Information Network - CIESIN - Columbia University. 2016. High Resolution Settlement Layer (HRSL). Source imagery for HRSL © 2016 DigitalGlobe. Accessed 20.06.2019",
+		"author": [
+			{
+				"literal": "Facebook"
+			},
+			{
+				"literal": "CIESIN"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2016"
+				]
+			]
+		}
+	},
+	{
+		"id": "weiss2018",
+		"type": "article-journal",
+		"abstract": "The economic and man-made resources that sustain human wellbeing are not distributed evenly across the world, but are instead heavily concentrated in cities. Poor access to opportunities and services offered by urban centres (a function of distance, transport infrastructure, and the spatial distribution of cities) is a major barrier to improved livelihoods and overall development. Advancing accessibility worldwide underpins the equity agenda of 'leaving no one behind' established by the Sustainable Development Goals of the United Nations. This has renewed international efforts to accurately measure accessibility and generate a metric that can inform the design and implementation of development policies. The only previous attempt to reliably map accessibility worldwide, which was published nearly a decade ago, predated the baseline for the Sustainable Development Goals and excluded the recent expansion in infrastructure networks, particularly in lower-resource settings. In parallel, new data sources provided by Open Street Map and Google now capture transportation networks with unprecedented detail and precision. Here we develop and validate a map that quantifies travel time to cities for 2015 at a spatial resolution of approximately one by one kilometre by integrating ten global-scale surfaces that characterize factors affecting human movement rates and 13,840 high-density urban centres within an established geospatial-modelling framework. Our results highlight disparities in accessibility relative to wealth as 50.9% of individuals living in low-income settings (concentrated in sub-Saharan Africa) reside within an hour of a city compared to 90.7% of individuals in high-income settings. By further triangulating this map against socioeconomic datasets, we demonstrate how access to urban centres stratifies the economic, educational, and health status of humanity.",
+		"container-title": "Nature",
+		"DOI": "10.1038/nature25181",
+		"ISSN": "1476-4687 (Electronic) 0028-0836 (Linking)",
+		"issue": "7688",
+		"page": "333-336",
+		"title": "A global map of travel time to cities to assess inequalities in accessibility in 2015",
+		"volume": "553",
+		"author": [
+			{
+				"family": "Weiss",
+				"given": "D. J."
+			},
+			{
+				"family": "Nelson",
+				"given": "A."
+			},
+			{
+				"family": "Gibson",
+				"given": "H. S."
+			},
+			{
+				"family": "Temperley",
+				"given": "W."
+			},
+			{
+				"family": "Peedell",
+				"given": "S."
+			},
+			{
+				"family": "Lieber",
+				"given": "A."
+			},
+			{
+				"family": "Hancher",
+				"given": "M."
+			},
+			{
+				"family": "Poyart",
+				"given": "E."
+			},
+			{
+				"family": "Belchior",
+				"given": "S."
+			},
+			{
+				"family": "Fullman",
+				"given": "N."
+			},
+			{
+				"family": "Mappin",
+				"given": "B."
+			},
+			{
+				"family": "Dalrymple",
+				"given": "U."
+			},
+			{
+				"family": "Rozier",
+				"given": "J."
+			},
+			{
+				"family": "Lucas",
+				"given": "T. C. D."
+			},
+			{
+				"family": "Howes",
+				"given": "R. E."
+			},
+			{
+				"family": "Tusting",
+				"given": "L. S."
+			},
+			{
+				"family": "Kang",
+				"given": "S. Y."
+			},
+			{
+				"family": "Cameron",
+				"given": "E."
+			},
+			{
+				"family": "Bisanzio",
+				"given": "D."
+			},
+			{
+				"family": "Battle",
+				"given": "K. E."
+			},
+			{
+				"family": "Bhatt",
+				"given": "S."
+			},
+			{
+				"family": "Gething",
+				"given": "P. W."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					1,
+					18
+				]
+			]
+		}
+	},
+
+
+
+		{
+		"id": "world_bank_report",
+		"type": "report",
+		"title": "Haitian cities: Actions for today with an eye on tomorrow",
+		"URL": "http://documents.worldbank.org/curated/en/709121516634280180/pdf/122880-V1-WP-P156561-OUO-9-FINAL-ENGLISH.pdf",
+		"author": [
+			{
+				"literal": "The World Bank"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					2,
+					5
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017"
+				]
+			]
+		}
+	},
+	{
+		"id": "weiss2020",
+		"type": "article-journal",
+		"container-title": "Nature Medicine",
+		"DOI": "10.1038/s41591-020-1059-1",
+		"ISSN": "1546-170X",
+		"language": "en",
+		"note": "publisher: Nature Publishing Group",
+		"page": "1-4",
+		"source": "www.nature.com",
+		"title": "Global maps of travel time to healthcare facilities",
+		"URL": "https://www.nature.com/articles/s41591-020-1059-1",
+		"author": [
+			{
+				"family": "Weiss",
+				"given": "D. J."
+			},
+			{
+				"family": "Nelson",
+				"given": "A."
+			},
+			{
+				"family": "Vargas-Ruiz",
+				"given": "C. A."
+			},
+			{
+				"family": "Gligorić",
+				"given": "K."
+			},
+			{
+				"family": "Bavadekar",
+				"given": "S."
+			},
+			{
+				"family": "Gabrilovich",
+				"given": "E."
+			},
+			{
+				"family": "Bertozzi-Villa",
+				"given": "A."
+			},
+			{
+				"family": "Rozier",
+				"given": "J."
+			},
+			{
+				"family": "Gibson",
+				"given": "H. S."
+			},
+			{
+				"family": "Shekel",
+				"given": "T."
+			},
+			{
+				"family": "Kamath",
+				"given": "C."
+			},
+			{
+				"family": "Lieber",
+				"given": "A."
+			},
+			{
+				"family": "Schulman",
+				"given": "K."
+			},
+			{
+				"family": "Shao",
+				"given": "Y."
+			},
+			{
+				"family": "Qarkaxhija",
+				"given": "V."
+			},
+			{
+				"family": "Nandi",
+				"given": "A. K."
+			},
+			{
+				"family": "Keddie",
+				"given": "S. H."
+			},
+			{
+				"family": "Rumisha",
+				"given": "S."
+			},
+			{
+				"family": "Amratia",
+				"given": "P."
+			},
+			{
+				"family": "Arambepola",
+				"given": "R."
+			},
+			{
+				"family": "Chestnutt",
+				"given": "E. G."
+			},
+			{
+				"family": "Millar",
+				"given": "J. J."
+			},
+			{
+				"family": "Symons",
+				"given": "T. L."
+			},
+			{
+				"family": "Cameron",
+				"given": "E."
+			},
+			{
+				"family": "Battle",
+				"given": "K. E."
+			},
+			{
+				"family": "Bhatt",
+				"given": "S."
+			},
+			{
+				"family": "Gething",
+				"given": "P. W."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2020",
+					11,
+					3
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					9,
+					28
+				]
+			]
+		}
+	},
+	{
+		"id": "malariaatlas_package",
+		"type": "article-journal",
+		"container-title": "Malaria Journal",
+		"DOI": "10.1186/s12936-018-2500-5",
+		"ISSN": "1475-2875",
+		"issue": "1",
+		"journalAbbreviation": "Malar J",
+		"language": "en",
+		"note": "number: 1\npublisher: BioMed Central",
+		"page": "1-10",
+		"source": "malariajournal.biomedcentral.com",
+		"title": "malariaAtlas : an R interface to global malariometric data hosted by the Malaria Atlas Project",
+		"title-short": "malariaAtlas",
+		"URL": "https://malariajournal.biomedcentral.com/articles/10.1186/s12936-018-2500-5",
+		"volume": "17",
+		"author": [
+			{
+				"family": "Pfeffer",
+				"given": "Daniel A."
+			},
+			{
+				"family": "Lucas",
+				"given": "Timothy C. D."
+			},
+			{
+				"family": "May",
+				"given": "Daniel"
+			},
+			{
+				"family": "Harris",
+				"given": "Joseph"
+			},
+			{
+				"family": "Rozier",
+				"given": "Jennifer"
+			},
+			{
+				"family": "Twohig",
+				"given": "Katherine A."
+			},
+			{
+				"family": "Dalrymple",
+				"given": "Ursula"
+			},
+			{
+				"family": "Guerra",
+				"given": "Carlos A."
+			},
+			{
+				"family": "Moyes",
+				"given": "Catherine L."
+			},
+			{
+				"family": "Thorn",
+				"given": "Mike"
+			},
+			{
+				"family": "Nguyen",
+				"given": "Michele"
+			},
+			{
+				"family": "Bhatt",
+				"given": "Samir"
+			},
+			{
+				"family": "Cameron",
+				"given": "Ewan"
+			},
+			{
+				"family": "Weiss",
+				"given": "Daniel J."
+			},
+			{
+				"family": "Howes",
+				"given": "Rosalind E."
+			},
+			{
+				"family": "Battle",
+				"given": "Katherine E."
+			},
+			{
+				"family": "Gibson",
+				"given": "Harry S."
+			},
+			{
+				"family": "Gething",
+				"given": "Peter W."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2021",
+					2,
+					26
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					12
+				]
+			]
+		}
+	},
+		{
+		"id": "gurobi",
+		"type": "book",
+		"title": "Gurobi Optimizer Reference Manual",
+		"URL": "http://www.gurobi.com",
+		"author": [
+			{
+				"literal": "Gurobi Optimization, LLC"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "scip1",
+		"type": "report",
+		"genre": "Technical Report",
+		"publisher": "Optimization Online",
+		"title": "The SCIP Optimization Suite 7.0",
+		"URL": "http://www.optimization-online.org/DB_HTML/2020/03/7705.html",
+		"author": [
+			{
+				"family": "Gamrath",
+				"given": "Gerald"
+			},
+			{
+				"family": "Anderson",
+				"given": "Daniel"
+			},
+			{
+				"family": "Bestuzheva",
+				"given": "Ksenia"
+			},
+			{
+				"family": "Chen",
+				"given": "Wei-Kun"
+			},
+			{
+				"family": "Eifler",
+				"given": "Leon"
+			},
+			{
+				"family": "Gasse",
+				"given": "Maxime"
+			},
+			{
+				"family": "Gemander",
+				"given": "Patrick"
+			},
+			{
+				"family": "Gleixner",
+				"given": "Ambros"
+			},
+			{
+				"family": "Gottwald",
+				"given": "Leona"
+			},
+			{
+				"family": "Halbig",
+				"given": "Katrin"
+			},
+			{
+				"family": "Hendel",
+				"given": "Gregor"
+			},
+			{
+				"family": "Hojny",
+				"given": "Christopher"
+			},
+			{
+				"family": "Koch",
+				"given": "Thorsten"
+			},
+			{
+				"family": "Le Bodic",
+				"given": "Pierre"
+			},
+			{
+				"family": "Maher",
+				"given": "Stephen J."
+			},
+			{
+				"family": "Matter",
+				"given": "Frederic"
+			},
+			{
+				"family": "Miltenberger",
+				"given": "Matthias"
+			},
+			{
+				"family": "Mühmer",
+				"given": "Erik"
+			},
+			{
+				"family": "Müller",
+				"given": "Benjamin"
+			},
+			{
+				"family": "Pfetsch",
+				"given": "Marc E."
+			},
+			{
+				"family": "Schlösser",
+				"given": "Franziska"
+			},
+			{
+				"family": "Serrano",
+				"given": "Felipe"
+			},
+			{
+				"family": "Shinano",
+				"given": "Yuji"
+			},
+			{
+				"family": "Tawfik",
+				"given": "Christine"
+			},
+			{
+				"family": "Vigerske",
+				"given": "Stefan"
+			},
+			{
+				"family": "Wegscheider",
+				"given": "Fabian"
+			},
+			{
+				"family": "Weninger",
+				"given": "Dieter"
+			},
+			{
+				"family": "Witzig",
+				"given": "Jakob"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "scip2",
+		"type": "report",
+		"genre": "ZIB-Report",
+		"number": "20-10",
+		"publisher": "Zuse Institute Berlin",
+		"title": "The SCIP Optimization Suite 7.0",
+		"URL": "http://nbn-resolving.de/urn:nbn:de:0297-zib-78023",
+		"author": [
+			{
+				"family": "Gamrath",
+				"given": "Gerald"
+			},
+			{
+				"family": "Anderson",
+				"given": "Daniel"
+			},
+			{
+				"family": "Bestuzheva",
+				"given": "Ksenia"
+			},
+			{
+				"family": "Chen",
+				"given": "Wei-Kun"
+			},
+			{
+				"family": "Eifler",
+				"given": "Leon"
+			},
+			{
+				"family": "Gasse",
+				"given": "Maxime"
+			},
+			{
+				"family": "Gemander",
+				"given": "Patrick"
+			},
+			{
+				"family": "Gleixner",
+				"given": "Ambros"
+			},
+			{
+				"family": "Gottwald",
+				"given": "Leona"
+			},
+			{
+				"family": "Halbig",
+				"given": "Katrin"
+			},
+			{
+				"family": "Hendel",
+				"given": "Gregor"
+			},
+			{
+				"family": "Hojny",
+				"given": "Christopher"
+			},
+			{
+				"family": "Koch",
+				"given": "Thorsten"
+			},
+			{
+				"family": "Le Bodic",
+				"given": "Pierre"
+			},
+			{
+				"family": "Maher",
+				"given": "Stephen J."
+			},
+			{
+				"family": "Matter",
+				"given": "Frederic"
+			},
+			{
+				"family": "Miltenberger",
+				"given": "Matthias"
+			},
+			{
+				"family": "Mühmer",
+				"given": "Erik"
+			},
+			{
+				"family": "Müller",
+				"given": "Benjamin"
+			},
+			{
+				"family": "Pfetsch",
+				"given": "Marc E."
+			},
+			{
+				"family": "Schlösser",
+				"given": "Franziska"
+			},
+			{
+				"family": "Serrano",
+				"given": "Felipe"
+			},
+			{
+				"family": "Shinano",
+				"given": "Yuji"
+			},
+			{
+				"family": "Tawfik",
+				"given": "Christine"
+			},
+			{
+				"family": "Vigerske",
+				"given": "Stefan"
+			},
+			{
+				"family": "Wegscheider",
+				"given": "Fabian"
+			},
+			{
+				"family": "Weninger",
+				"given": "Dieter"
+			},
+			{
+				"family": "Witzig",
+				"given": "Jakob"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "shapefile",
+		"type": "map",
+		"title": "Haiti - Subnational Administrative Boundaries",
+		"URL": "https://data.humdata.org/dataset/hti-polbndl-adm1-cnigs-zip",
+		"author": [
+			{
+				"literal": "Centre National de l'Information Géo-Spatiale (CNIGS)"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2017",
+					10,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2013"
+				]
+			]
+		}
+	}
+]
+
