@@ -100,25 +100,25 @@ CHW.positions.scenarioCout.CSLCP=data.frame()
 CHW.positions.scenarioCin2.CSLCP=data.frame()
 for (i in names(dpt.list2)){
   print(i)
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer30_capa25001000clump300in0/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer30_capa25001000300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioB.CSLCP=rbind(CHW.positions.scenarioB.CSLCP,this.data)
 
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa40004000clump300in1/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa40004000300in1urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=0
   CHW.positions.scenarioCin.CSLCP=rbind(CHW.positions.scenarioCin.CSLCP,this.data)
 
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa25001000clump300in0/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa25001000300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioCout.CSLCP=rbind(CHW.positions.scenarioCout.CSLCP,this.data)
 
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa40001000clump300in1/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer60_capa40001000300in1urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=0
@@ -127,13 +127,13 @@ for (i in names(dpt.list2)){
 
 for (i in names(dpt.list2)[1:13]){
   print(i)
-  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer0_capa25001000clump300in0/positions_popcov_",i,".csv")))
+  this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer0_capa25001000300in0urbs2000/positions_popcov_",i,".csv")))
   this.data$metro=ifelse(i=="AireMetro" , 1, 0)
   this.data$dpt=switch_dpt(i)
   this.data$out=1
   CHW.positions.scenarioA.CSLCP=rbind(CHW.positions.scenarioA.CSLCP,this.data)
 }
-this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer0_capa40004000clump300in0/positions_popcov_","AireMetro",".csv")))
+this.data=read.csv(file.path(dirOutputs,paste0("clscp_60_buffer0_capa40004000300in0urbs2000/positions_popcov_","AireMetro",".csv")))
 this.data$metro=1
 this.data$out=1
 this.data$dpt="AireMetro"
