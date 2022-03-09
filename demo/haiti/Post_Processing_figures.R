@@ -43,7 +43,7 @@ library(CHWplacement)
 ### Define input layers directory
 dirMain="."  # to be updated with the corresponding path
 dirPlots=file.path(dirMain,"figures") # to be updated with the desired path
-dirInputs=file.path(dirMain,"inputs")
+dirInputs=file.path(dirMain,"input_data")
 dirOutputs=file.path(dirMain, "outputs")
 dirSPA=file.path(dirInputs,"SPA") # to be updated with the corresponding path
 
@@ -290,7 +290,7 @@ colormapDTb2$label=colormapDTb2$value
 map_rururb<-PlotMap(population.urb.hai.dummy,Title.legend=" ",shpFile=seccom.shp,colormapDT=colormapDTrurub)
 map_rururb<-map_rururb+theme(legend.key.size = unit(0.8, "cm"),legend.position = c(0.12, 0.7),legend.text=element_text(size=10),legend.title=element_text(size=10))
 map_rururb
-ggsave(map_rururb, file=file.path(dirPlots,"S1_Fig.tiff"), width=12,height=10, units = "cm")
+ggsave(map_rururb, file=file.path(dirPlots,"S1_Fig.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 
 seccom.shp.union2=SpatialPolygonsDataFrame(seccom.shp.union,data.frame(dpt=unique(seccom.shp$departement)), match.ID = F)
@@ -316,34 +316,34 @@ CHW.positions.scenarioC2.CSLCP=plot_scenario_all_cslscp(rbind(CHW.positions.scen
 
 
 plot_dpt_ouest=plot_dpt_summary("Ouest")
-ggsave(plot_dpt_ouest, file=file.path(dirPlots,"figure_all_Ouest.tiff"), width=12, height=7)
+ggsave(plot_dpt_ouest, file=file.path(dirPlots,"figure_all_Ouest.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_GA=plot_dpt_summary("GrandeAnse")
-ggsave(plot_dpt_GA, file=file.path(dirPlots,"figure_all_GrandeAnse.tiff"), width=12, height=7) # Fig2
+ggsave(plot_dpt_GA, file=file.path(dirPlots,"figure_all_GrandeAnse.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff") # Fig2
 
 plot_dpt_Sud=plot_dpt_summary("Sud")
-ggsave(plot_dpt_Sud, file=file.path(dirPlots,"figure_all_Sud.tiff"), width=16, height=7)
+ggsave(plot_dpt_Sud, file=file.path(dirPlots,"figure_all_Sud.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_SudEst=plot_dpt_summary("SudEst")
-ggsave(plot_dpt_SudEst, file=file.path(dirPlots,"figure_all_SudEst.tiff"), width=16, height=7)
+ggsave(plot_dpt_SudEst, file=file.path(dirPlots,"figure_all_SudEst.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_Nord=plot_dpt_summary("Nord")
-ggsave(plot_dpt_Nord, file=file.path(dirPlots,"figure_all_Nord.tiff"), width=9, height=7)
+ggsave(plot_dpt_Nord, file=file.path(dirPlots,"figure_all_Nord.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_NordEst=plot_dpt_summary("NordEst")
-ggsave(plot_dpt_NordEst, file=file.path(dirPlots,"figure_all_NordEst.tiff"), width=9, height=7)
+ggsave(plot_dpt_NordEst, file=file.path(dirPlots,"figure_all_NordEst.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_NordOuest=plot_dpt_summary("NordOuest")
-ggsave(plot_dpt_NordOuest, file=file.path(dirPlots,"figure_all_NordOuest.tiff"), width=12, height=7)
+ggsave(plot_dpt_NordOuest, file=file.path(dirPlots,"figure_all_NordOuest.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_Centre=plot_dpt_summary("Centre")
-ggsave(plot_dpt_Centre, file=file.path(dirPlots,"figure_all_Centre.tiff"), width=10, height=7)
+ggsave(plot_dpt_Centre, file=file.path(dirPlots,"figure_all_Centre.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_Nippes=plot_dpt_summary("Nippes")
-ggsave(plot_dpt_Nippes, file=file.path(dirPlots,"figure_all_Nippes.tiff"), width=12, height=7)
+ggsave(plot_dpt_Nippes, file=file.path(dirPlots,"figure_all_Nippes.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 plot_dpt_Artibonite=plot_dpt_summary("Artibonite")
-ggsave(plot_dpt_Artibonite, file=file.path(dirPlots,"figure_all_Artibonite.tiff"), width=9, height=9)
+ggsave(plot_dpt_Artibonite, file=file.path(dirPlots,"figure_all_Artibonite.tiff"), width=7.5, height=7, compression="lzw", bg="white", dpi=300, device="tiff")
 
 
 ##########################################################
@@ -383,9 +383,9 @@ total_per_category %>%
   scale_fill_manual(name="" ,values=c("darkorange", "darkgreen", "dodgerblue", "dodgerblue4"), guide=F)+
   scale_alpha_manual(name="" ,values=c(1,0.7,0.4), labels=c("Metropolitan","Urban","Rural"), drop=F)+
   labs(x="", y="Number of CHWs")+theme_bw()+
-  geom_text(aes(label = totalCHW2 , y=totalCHW2), vjust=-0.25, size=5, show.legend = FALSE)+
-  theme(axis.text = element_text(size=14),
-        axis.title = element_text(size=14), legend.text = element_text(size=14)) -> ggp2
+  geom_text(aes(label = totalCHW2 , y=totalCHW2), vjust=-0.25, size=3, show.legend = FALSE)+
+  theme(axis.text = element_text(size=9),
+        axis.title = element_text(size=9), legend.text = element_text(size=10)) -> ggp2
 ggp2
 
 
@@ -413,15 +413,15 @@ ggplot(test_df_plot, aes(x=x.seq, y=mean, fill=scenario_far, color=scenario_far,
   geom_bar(stat="identity", position = position_dodge() )+
   geom_errorbar(position = position_dodge(.9), alpha=1, width=0.2)+
   ylim(-200,4100)+
-  geom_text(aes(x=1.2, y=0,  label="Total \n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=4.2, y=0,  label="Total \n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=6.7, y=0,  label="Total \n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=10.4, y=0,  label="Total \n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=5.2, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=7.7, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=8.9, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=11.4, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=12.6, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=1.2, y=0,  label="Total \n "), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=4.2, y=0,  label="Total \n "), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=6.7, y=0,  label="Total \n "), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=10.4, y=0,  label="Total \n "), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=5.2, y=0,  label=" far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=7.7, y=0,  label=" close \nto CCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=8.9, y=0,  label=" far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=11.4, y=0,  label=" close \nto CCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=12.6, y=0,  label=" far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
   scale_x_continuous(breaks = c(1.5, 4.85, 7.95, 11.65), labels=c("A", "B", "C", "C2"))+
   scale_fill_manual(values = c("darkorange","darkorange", "darkgreen", "darkgreen","dodgerblue", "dodgerblue", "dodgerblue","dodgerblue4","dodgerblue4", "dodgerblue4"), guide=F)+
   scale_color_manual(values = c("darkorange","darkorange", "darkgreen", "darkgreen","dodgerblue", "dodgerblue", "dodgerblue","dodgerblue4","dodgerblue4", "dodgerblue4"), guide=F)+
@@ -429,9 +429,9 @@ ggplot(test_df_plot, aes(x=x.seq, y=mean, fill=scenario_far, color=scenario_far,
        caption="Error bars indicate the 5% and 95% quantiles\nof the distribution over all CHWs.")+
   theme_bw()+
   guides(alpha = guide_legend(override.aes = list(colour = "black", size = 0.5)))+
-  theme(axis.text = element_text(size=14),
-        axis.title = element_text(size=14),
-        plot.caption = element_text(size=14), legend.text = element_text(size=14))-> plot_average
+  theme(axis.text = element_text(size=9),
+        axis.title = element_text(size=9),
+        plot.caption = element_text(size=8), legend.text = element_text(size=9))-> plot_average
 plot_average
 
 # compbine both plots
@@ -442,8 +442,8 @@ legend <- get_legend(
   plot_average + theme(legend.box.margin = margin(0, 0, 0, 0), legend.position = "bottom")
 )
 all_2legend=plot_grid(plot2,legend,  ncol=1, rel_heights = c(1,0.07))
-ggsave(all_2legend, file=file.path(dirPlots, "Fig3.tiff"), width=30,height=16, units = "cm")
-
+ggsave(all_2legend, file=file.path(dirPlots, "Fig3.tiff"), width=7.5, height=4, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "Fig3.tiff")))
 
 # supplementary plot on the number of CHW with few inh.
 # get totals for C and C2
@@ -474,18 +474,18 @@ test_df_plot_small%>%
   scale_fill_manual(values = c("darkorange", "darkgreen", "white","dodgerblue","dodgerblue", "white", "dodgerblue4", "dodgerblue4"), guide=F)+
   scale_color_manual(values = c("darkorange", "darkgreen", "dodgerblue", "dodgerblue4"), guide=F)+
   labs(y="% of all CHWs in scenario\nwith <100 assigned inh.", x="")+
-  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=5, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=6, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=7, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=8, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=9, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=10, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=5, y=0,  label="Total\n "), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=6, y=0,  label="close\nto CCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=7, y=0,  label=" far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=8, y=0,  label="Total\n "), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=9, y=0,  label="close\nto CCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=10, y=0,  label=" far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
   scale_x_continuous(breaks = c(1, 3, 6, 9), labels=c("A", "B", "C", "C2"))+
   scale_y_continuous(breaks = c(0, 0.5, 1, 1.5, 2, 2.5),labels = c("0%", "0.5%", "1%", "1.5%", "2%", "2.5%"), limits = c(-0.1,2.5))+
   theme_bw()+
-  theme(axis.text = element_text(size=14),
-        axis.title = element_text(size=14), legend.text = element_text(size=14)) -> plot_small
+  theme(axis.text = element_text(size=10),
+        axis.title = element_text(size=10), legend.text = element_text(size=10)) -> plot_small
 plot_small
 
 
@@ -537,21 +537,21 @@ test_df_plot_threshold%>%
   geom_bar(stat="identity")+
   scale_fill_manual(values = c("darkorange", "darkgreen", "white","dodgerblue","dodgerblue", "white", "dodgerblue4", "dodgerblue4"), guide=F)+
   scale_color_manual(values = c("darkorange", "darkgreen", "dodgerblue", "dodgerblue4"), guide=F)+
-  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=5, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=6, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=7, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=8, y=0,  label="Total\n"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=9, y=0,  label="close to\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
-  geom_text(aes(x=10, y=0,  label="far from\nCCS"), vjust=1.2, size=3, color="black", show.legend = FALSE)+
+  geom_text(aes(x=3, y=0,  label="far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=5, y=0,  label="Total\n "), vjust=1.2, size=1.7, color3="black", show.legend = FALSE)+
+  geom_text(aes(x=6, y=0,  label="close\nto CCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=7, y=0,  label=" far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=8, y=0,  label="Total\n "), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=9, y=0,  label="close\nto CCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
+  geom_text(aes(x=10, y=0,  label=" far from\nCCS"), vjust=1.2, size=1.7, color="black", show.legend = FALSE)+
   scale_x_continuous(breaks = c(1, 3, 6, 9), labels=c("A", "B", "C", "C2"))+
   guides(pattern = guide_legend(override.aes = list(fill = "white")),
          alpha = guide_legend(override.aes = list(pattern = "none"))) +
   labs(y="% of all CHWs in scenario\nreaching the threshold population", x="")+
   theme_bw()+
   scale_y_continuous(breaks = c(0,10, 20, 30, 40,50, 60),labels = c("0%","10%", "20%", "30%", "40%","50%", "60%"), limits = c(-3,NA))+
-  theme(axis.text = element_text(size=14),
-        axis.title = element_text(size=14), legend.text = element_text(size=14)) -> plot_threshold
+  theme(axis.text = element_text(size=10),
+        axis.title = element_text(size=10), legend.text = element_text(size=10)) -> plot_threshold
 plot_threshold
 
 # combine both plots
@@ -559,7 +559,8 @@ plot3=plot_grid(plot_threshold+theme(legend.position = "none"),plot_small+theme(
                 labels=c("1.","2."),ncol=2,scale=0.9,label_size = 20 )
 legend2 <- get_legend(  plot_threshold + theme(legend.box.margin = margin(0, 0, 0, 0), legend.position = "bottom"))
 all_3legend=plot_grid(plot3,legend,  ncol=1, rel_heights = c(1,0.07))
-ggsave(all_3legend, file=file.path(dirPlots, "S2_Fig.tiff"), width=35,height=16, units = "cm")
+ggsave(all_3legend, file=file.path(dirPlots, "S2_Fig.tiff"),  width=7.5, height=4, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "S2_Fig.tiff")))
 
 
 
@@ -629,6 +630,7 @@ data.spa.withCHW=merge(data.spa.ascp,data.spa.withCHW, all.x=TRUE)
 # total numbers per department
 spa.departements=aggregate((data.spa.withCHW$chw),by= list(dept=data.spa.withCHW$dept), FUN=sum)
 names(spa.departements)=c("dept","nbCHW")
+spa.departements$dept=gsub("...aire métropolitaine", "aire metropolitaine",spa.departements$dept)
 #merge with section communale shapefile
 dept=unique(seccom.shp@data[,c(2,12)])
 dept$dept=tolower(dept$departement)
@@ -701,7 +703,7 @@ p=ggplot( ) +
     , position = position_dodge(0.5) ) +
   geom_point(
     data = compare
-    , aes(y = departement, x = nbCHW, pch = scenario, col = scenario ), cex = 5)+
+    , aes(y = departement, x = nbCHW, pch = scenario, col = scenario ), cex = 3)+
   labs( y = ""
         , x = "Number of agents"
         , fill = "Current placement"
@@ -712,13 +714,14 @@ p=ggplot( ) +
   scale_color_manual( values = c("darkorange","darkgreen","dodgerblue","darkblue"))+
   scale_shape_manual( values = c(19, 17, 15, 8))+
   theme_minimal()+
-  theme(axis.text = element_text(size=16),
+  theme(axis.text = element_text(size=12),
         #axis.text.x = element_text(angle = 45),
-        axis.title = element_text(size=16),
-        legend.text = element_text(size=16),
-        legend.title  = element_text(size=16)) + guides(shape = guide_legend(override.aes = list(size = 5)))
+        axis.title = element_text(size=12),
+        legend.text = element_text(size=12),
+        legend.title  = element_text(size=12)) + guides(shape = guide_legend(override.aes = list(size = 5)))
 p
-ggsave(p, file=file.path(dirPlots,"Fig4.tiff"), width=11, height=8)
+ggsave(p, file=file.path(dirPlots,"Fig4.tiff"),  width=7.5, height=6, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "Fig4.tiff")))
 
 
 #############################
@@ -751,7 +754,8 @@ plot.GapscenarioC2.seccom=PlotGapScenarioSeccom(CHW.positions.scenarioC2.CSLCP[,
 plot.CHW.positions.scenarioC.CSLCP=plot_scenario_all_cslscp_plots(rbind(CHW.positions.scenarioCin.CSLCP,CHW.positions.scenarioCout.CSLCP), "scenarioC")
 
 figure5=plot_grid(plot.CHW.positions.scenarioC.CSLCP$map_seccom,plot.GapscenarioC.seccom$plot, labels=c("1.", "2.") )
-ggsave(figure5, file=file.path(dirPlots,"Fig5.pdf"), width=20,height=10, units = "cm")
+ggsave(figure5, file=file.path(dirPlots,"Fig5.tiff"),  width=7.5, height=4.5, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "Fig5.tiff")))
 
 
 
@@ -759,12 +763,19 @@ plot.CHW.positions.scenarioA.CSLCP=plot_scenario_all_cslscp_plots(rbind(CHW.posi
 plot.CHW.positions.scenarioB.CSLCP=plot_scenario_all_cslscp_plots(rbind(CHW.positions.scenarioB.CSLCP), "scenarioB")
 plot.CHW.positions.scenarioC2.CSLCP=plot_scenario_all_cslscp_plots(rbind(CHW.positions.scenarioCin2.CSLCP,CHW.positions.scenarioCout.CSLCP), "scenarioC2")
 
-figure5_A=plot_grid(plot.CHW.positions.scenarioA.CSLCP$map_seccom,plot.GapscenarioA.seccom$plot, labels=c("1.", "2.") )
-figure5_B=plot_grid(plot.CHW.positions.scenarioB.CSLCP$map_seccom,plot.GapscenarioB.seccom$plot, labels=c("1.", "2.") )
-figure5_C2=plot_grid(plot.CHW.positions.scenarioC2.CSLCP$map_seccom,plot.GapscenarioC2.seccom$plot, labels=c("1.", "2.") )
+figure5_A=plot_grid(plot.CHW.positions.scenarioA.CSLCP$map_seccom+theme(legend.text=element_text(size=7), legend.key.size =unit(.2, "in"), legend.title =element_text(size=9)),
+                    plot.GapscenarioA.seccom$plot+theme(legend.text=)+theme(legend.text=element_text(size=7), legend.key.size =unit(.15, "in"), legend.title =element_text(size=9) ), 
+                    labels=c("   1.", "2."), label_size =  )
+figure5_B=plot_grid(plot.CHW.positions.scenarioB.CSLCP$map_seccom+theme(legend.text=element_text(size=7), legend.key.size =unit(.2, "in"), legend.title =element_text(size=9)),
+                    plot.GapscenarioB.seccom$plot+theme(legend.text=element_text(size=7), legend.key.size =unit(.15, "in"), legend.title =element_text(size=9)), 
+                    labels=c("   1.", "2.") )
+figure5_C2=plot_grid(plot.CHW.positions.scenarioC2.CSLCP$map_seccom+theme(legend.text=element_text(size=7), legend.key.size =unit(.2, "in"), legend.title =element_text(size=9)),
+                     plot.GapscenarioC2.seccom$plot+theme(legend.text=element_text(size=7), legend.key.size =unit(.15, "in"), legend.title =element_text(size=9)), 
+                     labels=c("     1.", "2.") )
 
-figure5_all_supp=plot_grid(figure5_A, figure5_B, figure5_C2, nrow = 3)
-ggsave(figure5_all_supp, file=file.path(dirPlots,"S3_fig.tiff"), width=20,height=30, units = "cm", dpi=180)
+figure5_all_supp=plot_grid(figure5_A, figure5_B, figure5_C2, nrow = 3, labels = c("A.", "B.", "C2."))
+ggsave(figure5_all_supp, file=file.path(dirPlots,"S3_fig.tiff"),  width=6.5, height=8.75, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "S3_fig.tiff")))
 
 
 #=======================================================
@@ -971,15 +982,15 @@ total_per_category_sensi %>%
   ggplot(aes(x = updown, y = count, alpha= categories)) +  # Create stacked bar chart
   geom_bar(stat = "identity", fill="dodgerblue")+
   scale_alpha_manual(name="" ,values=c(1,0.7,0.4))+
-  labs(x="", y="Number of CHWs")+theme_bw()+
-  geom_text(aes(label = totalCHW2 , y=totalCHW2), vjust=-0.25, size=6, show.legend = FALSE)+
+  labs(x="", y="Number of CHWs")+theme_bw()+ylim(0,5400)+
+  geom_text(aes(label = totalCHW2 , y=totalCHW2), vjust=-0.25, size=3, show.legend = FALSE)+
   facet_wrap(.~sensi, scales="free_x", ncol=3)+
-  theme(axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=20, face = "bold"),
-        axis.title = element_text(size=20),
-        legend.text = element_text(size=20),
+  theme(axis.text.x = element_text(size=7),
+        axis.text.y = element_text(size=9, face = "bold"),
+        axis.title = element_text(size=9),
+        legend.text = element_text(size=9),
         legend.position = "bottom",
-        strip.text = element_text(size = 20, face = "bold"),
+        strip.text = element_text(size = 9, face = "bold"),
         strip.background = element_rect(fill="white") ) -> ggp2_sensi
 ggp2_sensi
 
@@ -998,19 +1009,20 @@ tornado_plot=total_per_category_sensi %>%
   geom_rect(aes(ymax=ymax, ymin=ymin, xmax=xmax, xmin=xmin, fill=updown)) +
   theme_bw() +
   theme(axis.title.y=element_blank(), legend.position = 'bottom',
-        axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=20, face = "bold"),
-        axis.title = element_text(size=20),
-        legend.text = element_text(size=20),
-        legend.title = element_text(size=20)) +
+        axis.text.x = element_text(size=8),
+        axis.text.y = element_text(size=8, face = "bold"),
+        axis.title = element_text(size=8),
+        legend.text = element_text(size=8),
+        legend.title = element_text(size=8)) +
   geom_hline(yintercept = 0) +
   scale_x_continuous(breaks=c(1,2,3,4,5),
                      labels = c( "Min. population\nfor urban areas","Min. density for\nurban areas","Distance to CCS", "Max. walking time", "Max. population")) +
   scale_fill_manual(values=c("lightblue","darkblue"))+labs(y="% change in the number of CHWs", fill= "Parameter value")+
-  coord_flip()+ theme(plot.margin = unit(c(0,0,20,0), "lines"))
+  coord_flip()+ theme(plot.margin = unit(c(0,2,10,0), "lines"))
 
-sensi_tornado=plot_grid(ggp2_sensi, tornado_plot, rel_widths = c(1, 0.6), rel_heights = c(1, 0.6), scale = 0.9, labels = c("1.", "2."), label_size = 25)
-ggsave(sensi_tornado, file=file.path(dirPlots,"S4_fig.tiff"), width=19, height=15)
+sensi_tornado=plot_grid(ggp2_sensi, tornado_plot, rel_widths = c(1, 0.6), rel_heights = c(1, 0.6), scale = 0.9, labels = c("1.", "2."), label_size = 20)
+ggsave(sensi_tornado, file=file.path(dirPlots,"S4_fig.tiff"),  width=7.5, height=6, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "S4_fig.tiff")))
 
 ######################################################
 # mean capacity per scenario per rural/urban/metropolitan
@@ -1027,16 +1039,17 @@ capacities.all.sensi %>% #filter(out==1)%>%
   scale_fill_manual(values = c("lightblue", "dodgerblue","darkblue"), name="")+
   scale_color_manual(values = c("lightblue3", "dodgerblue","darkblue"), guide=F)+
   labs(y="Inhabitants per CHW", x="", caption="Error bars indicate the 5% and 95% quantiles of the distribution over all CHWs.")+
-  theme(axis.text.x = element_text(size=20),
-        axis.text.y = element_text(size=20, face = "bold"),
-        axis.title = element_text(size=20),
-        plot.caption = element_text(size=20),
-        legend.text = element_text(size=20),
+  theme(axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10),
+        axis.title = element_text(size=12),
+        plot.caption = element_text(size=12),
+        legend.text = element_text(size=12),
         legend.position = "bottom",
-        strip.text = element_text(size = 18, face = "bold"),
+        strip.text = element_text(size = 12, face = "bold"),
         strip.background = element_rect(fill="white") ) -> plot_average_sensi
 plot_average_sensi
-ggsave(plot_average_sensi, file=file.path(dirPlots,"S5_Fig.tiff"), width=19, height=15)
+ggsave(plot_average_sensi, file=file.path(dirPlots,"S5_Fig.tiff"),  width=7.5, height=6, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "S5_fig.tiff")))
 
 
 ################################################
@@ -1060,22 +1073,23 @@ p=ggplot(data=compare_sensi, aes(x=departement, y=nbCHW, color=updown)) +
     , stat = "identity"
     , alpha = 0.5, color=NA
     , position = position_dodge(0.5) ) +
-  geom_point(stat="identity",  shape=15, size=4)+
+  geom_point(stat="identity",  shape=15, size=2)+
   xlab("")+theme_bw()+
   ylab("Number of CHWs")+coord_flip()+
   scale_color_manual(values = c("lightblue", "dodgerblue","darkblue"), name="Scenario C:")+
   scale_fill_manual( values = c("grey55","grey21"), name="Current placement:")+
-  theme(axis.text.x = element_text(size=16),
-        axis.text.y = element_text(size=16, face = "bold"),
+  theme(axis.text.x = element_text(size=10),
+        axis.text.y = element_text(size=10, face = "bold"),
         #axis.text.x = element_text(angle = 45),
-        axis.title = element_text(size=16),
-        legend.text = element_text(size=16),
-        legend.title = element_text(size=16),
+        axis.title = element_text(size=10),
+        legend.text = element_text(size=10),
+        legend.title = element_text(size=10),
         legend.position = "bottom",
-        strip.text = element_text(size = 16, face = "bold"),
+        strip.text = element_text(size = 10, face = "bold"),
         strip.background = element_rect(fill="white") )
 p
-ggsave(p, file=file.path(dirPlots,"S6_Fig.tiff"), width=16, height=14)
+ggsave(p, file=file.path(dirPlots,"S6_Fig.tiff"),  width=7.5, height=7.5, compression="lzw", bg="white", dpi=300, device="tiff")
+dim(readTIFF(file.path(dirPlots, "S6_fig.tiff")))
 
 
 

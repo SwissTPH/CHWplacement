@@ -81,9 +81,9 @@ plot_dpt_summary=function(mydpt){
   CCS.shp.dpt=spTransform(CCS.shp.dpt,newproj)
   CCS.dpt=data.frame(CCS.shp.dpt@coords)
   
-  map.population.dpt<-PlotMap(population.dpt,Title.legend="Population\ndensity",shpFile=my.shp.dpt,colormapDT=colormapDT0)+theme(legend.key.size = unit(0.4, "cm"))
+  map.population.dpt<-PlotMap(population.dpt,Title.legend="Population \ndensity",shpFile=my.shp.dpt,colormapDT=colormapDT0)+theme(legend.key.size = unit(0.16, "in"))
   #map.population.dpt
-  map.friction.dpt<-PlotMap(friction.dpt*1000,Title.legend="Minutes to\ncross 1km",shpFile=my.shp.dpt,colormapDT=colormapDTb2)+theme(legend.key.size = unit(0.4, "cm"))
+  map.friction.dpt<-PlotMap(friction.dpt*1000,Title.legend="Minutes to \ncross 1km ",shpFile=my.shp.dpt,colormapDT=colormapDTb2)+theme(legend.key.size = unit(0.16, "in"))
   map.friction.dpt
   
   map.population.dpt_frame=plot_grid(map.population.dpt,labels = c("2.")) +theme(plot.background = element_rect(color = "black"))
@@ -93,27 +93,28 @@ plot_dpt_summary=function(mydpt){
                           map.friction.dpt_frame,labels = c("2.", "3."), ncol=2)
   
   
-  travel.time.dpt<-PlotMap(access.dpt,Title.legend="\nWalking time\nto CCS\n(minutes)",shpFile=my.shp.dpt,colormapDT=colormapDTb, myalpha = 0.7)+
+  travel.time.dpt<-PlotMap(access.dpt,Title.legend="Walking time\nto CCS\n(minutes)\n ",shpFile=my.shp.dpt,colormapDT=colormapDTb, myalpha = 0.7)+
     geom_point(data=CCS.dpt,aes(x=coords.x1,y=coords.x2, shape="CCS"),col="red")+scale_shape_manual(values=17, name="")
   
   
   map.A=travel.time.dpt+
     geom_point(data=CHW.positions.scenario.dpt.scenarioA,aes(x=x,y=y, group=seq_along(rank), size=count),shape=20,col="dodgerblue")+
-    labs(size="\nNumber\nof CHWs")
+    labs(size="Number\nof CHWs")
   
   map.B=travel.time.dpt+
     geom_point(data=CHW.positions.scenario.dpt.scenarioB,aes(x=x,y=y, group=seq_along(rank), size=count),shape=20,col="dodgerblue")+
-    labs(size="\nNumber\nof CHWs")
+    labs(size="Number\nof CHWs")
   
   map.C=travel.time.dpt+
     geom_point(data=CHW.positions.scenario.dpt.scenarioC,aes(x=x,y=y, group=seq_along(rank), size=count),shape=20,col="dodgerblue")+
-    labs(size="\nNumber\nof CHWs")
+    labs(size="Number\nof CHWs")
   
   map.C2=travel.time.dpt+
     geom_point(data=CHW.positions.scenario.dpt.scenarioC2,aes(x=x,y=y, group=seq_along(rank), size=count),shape=20,col="dodgerblue")+
-    labs(size="\nNumber\nof CHWs")
+    labs(size="Number\nof CHWs")
   
-  legend <- get_legend(map.A + theme(legend.box.margin = margin(0, 0, 0, 0)))
+  legend <- get_legend(map.A + theme(legend.box.margin = margin(0, 0, 0, 0), legend.position = "bottom")+
+                         guides(size=guide_legend(order=2), fill=guide_legend(order=1)))
   title <- ggdraw() +  draw_label( " 1.", fontface = 'bold', x = 0, hjust = 0 ) + theme(plot.margin = margin(0, 0, 0, 0))
   
   plot_scenarios=plot_grid(map.A+theme(legend.position = "none"), 
@@ -123,14 +124,13 @@ plot_dpt_summary=function(mydpt){
                            ncol=2, labels = c("A", "B", "C", "C2"))
   
   plot_scenarios_title=plot_grid(title, plot_scenarios, ncol=1,rel_heights = c(0.05,1))
-  plot_scenarios_legend=plot_grid(plot_scenarios_title, legend, rel_widths = c(3, .4), ncol=2) +
+  plot_scenarios_legend=plot_grid(plot_scenarios_title, legend, rel_heights = c(1, .1), ncol=1) +
     theme(plot.background = element_rect(color = "black"))
   #plot_scenarios_legend
   
-  all.dpt=plot_grid(plot_scenarios_legend,plot_pop_fric  , ncol=1, scale=1,rel_heights = c(2.5,1))
+  all.dpt=plot_grid(plot_scenarios_legend,plot_pop_fric  , ncol=1, scale=1,rel_heights = c(2.7,1))
   #all.dpt
   return(all.dpt)
-  
 }
 
 

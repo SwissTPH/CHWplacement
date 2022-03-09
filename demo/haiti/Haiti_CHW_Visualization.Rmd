@@ -444,7 +444,7 @@ leaflet() %>%
 
 
 
-Modelled CHW positions for the four CHW placement scenarios (A, B, C and C2) are indicated with colored circles. The positioning of community health centres (CCS) are indicated with blue crosses. The colored surface indicates the prediction of population density in 2020 per square kilometre (@facebook_data), the friction surface by  @weiss2018, the predicted walking time to the closest CCS using the methodology by @weiss2020, and the urban and rural areas as predicted using the method from @world_bank_report.  The shapefile from the @shapefile was used.
+Modelled CHW positions for the four CHW placement scenarios (A, B, C and C2) are indicated with colored circles. The positioning of community health centres (CCS) are indicated with blue crosses. The colored surface indicates the prediction of population density in 2020 per square kilometre (@facebook_data), the friction surface by  @weiss2018, the predicted walking time to the closest CCS using the methodology by @weiss2020, and the urban and rural areas as predicted using the method from @world_bank_report.  The shapefile from the @shapefile was used (https://data.humdata.org/dataset/hti-polbndl-adm1-cnigs-zip).
 
 
 The maximum walking time is fixed to 60 minutes in all scenarios. The maximum number of inhabitants per CHW is varied across the four scenarios.   
