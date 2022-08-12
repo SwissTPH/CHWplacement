@@ -113,7 +113,7 @@ CreateCHWplacement=function(population.raster, friction.raster,shp,
 #' @param is.inside whether CHW are placed inside the buffer (if FALSE, they are placed outside)
 #' @param filepath directory where to store the MPS file
 #' @param write if TRUE, the output is written as a csv file in filepath
-#' @param name  name (character) of the MPS file
+#' @param name  name (character) of the .sol file
 #' @param capacity.name name (character) given to the capacity definition (for folder naming purposes)
 #'
 #' @return a MPS file containing the optimisation program

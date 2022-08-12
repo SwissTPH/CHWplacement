@@ -13,7 +13,7 @@
 #' @param filepath directory where to store the MPS file
 #' @param write f TRUE, the output is written as a csv file in filepath
 #' @param name name of the MPS file
-#' @param capacity.name ??
+#' @param capacity.name name (character) given to the capacity definition (for folder naming purposes)
 #'
 #' @return a MPS file containing the optimisation program
 #' @export
@@ -76,7 +76,7 @@ solve_CHWplacement = function(population.raster,friction.raster,
 ######################################################################
 
 #' @title Solve optimisation problem with R (lpSolve API)
-#' @description This function tranforms the output of a Gurobi opitimisation into map coordinates
+#' @description This function is a wrapper on **solve_CHWplacement** that can control execution time
 #' @param population.raster raster map containing population densities
 #' @param friction.raster raster map containing friction surface
 #' @param access.raster raster map containing the distance to HF layer
@@ -88,7 +88,7 @@ solve_CHWplacement = function(population.raster,friction.raster,
 #' @param filepath directory where to store the MPS file
 #' @param write f TRUE, the output is written as a csv file in filepath
 #' @param name name of the MPS file
-#' @param capacity.name ??
+#' @param capacity.name name (character) given to the capacity definition (for folder naming purposes)
 #' @param mytimeout maximal time (in seconds) that the function is allowed to search for the maximum
 #'
 #' @return a MPS file containing the optimisation program
