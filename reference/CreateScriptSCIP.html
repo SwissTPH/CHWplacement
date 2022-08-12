@@ -58,29 +58,38 @@ If the Windows script don't work, verify the Script version and maybe change the
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">CreateScriptSCIP</span><span class="op">(</span>
-  <span class="va">mps_directory</span>,
-  <span class="va">name</span>,
-  dualitygap <span class="op">=</span> <span class="fl">0</span>,
-  relativegap <span class="op">=</span> <span class="cn">T</span>,
-  SCIP_version <span class="op">=</span> <span class="st">"7.0.3"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">CreateScriptSCIP</span><span class="op">(</span></span>
+<span>  <span class="va">mps_directory</span>,</span>
+<span>  <span class="va">name</span>,</span>
+<span>  dualitygap <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  relativegap <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  SCIP_version <span class="op">=</span> <span class="st">"7.0.3"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>mps_directory</dt>
 <dd><p>directory of the mps file</p></dd>
+
+
 <dt>name</dt>
 <dd><p>name of the mps file</p></dd>
+
+
 <dt>dualitygap</dt>
 <dd><p>condition of suboptimality acceptance for the solver:
 give an upper bounds of the difference with an hypothetical optimal solution</p></dd>
+
+
 <dt>relativegap</dt>
 <dd><p>if true -&gt; |primal-dual|/MIN(|dual|,|primal|)
 else       |primal-dual|    (more interpretable but less accurate)</p></dd>
+
+
 <dt>SCIP_version</dt>
 <dd><p>usefull for creating SCIP_path so only for windows user</p></dd>
+
 </dl></div>
 
   </div>
@@ -95,7 +104,7 @@ else       |primal-dual|    (more interpretable but less accurate)</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

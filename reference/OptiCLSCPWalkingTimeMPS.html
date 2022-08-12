@@ -56,46 +56,67 @@ using the lpsolveAPI package for integer programming.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">OptiCLSCPWalkingTimeMPS</span><span class="op">(</span>
-  <span class="va">pop.map</span>,
-  <span class="va">access.raster</span>,
-  <span class="va">radius</span>,
-  <span class="va">T.GC</span>,
-  popurb <span class="op">=</span> <span class="st">"none"</span>,
-  <span class="va">max.treat.per.CHW.urban</span>,
-  <span class="va">max.treat.per.CHW.rural</span>,
-  max.CHW.per.pixel <span class="op">=</span> <span class="fl">1</span>,
-  <span class="va">directory</span>,
-  <span class="va">name</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">OptiCLSCPWalkingTimeMPS</span><span class="op">(</span></span>
+<span>  <span class="va">pop.map</span>,</span>
+<span>  <span class="va">access.raster</span>,</span>
+<span>  <span class="va">radius</span>,</span>
+<span>  <span class="va">T.GC</span>,</span>
+<span>  popurb <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>  <span class="va">max.treat.per.CHW.urban</span>,</span>
+<span>  <span class="va">max.treat.per.CHW.rural</span>,</span>
+<span>  max.CHW.per.pixel <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  <span class="va">directory</span>,</span>
+<span>  <span class="va">name</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>pop.map</dt>
 <dd><p>raster map containing population densities</p></dd>
+
+
 <dt>access.raster</dt>
 <dd><p>raster containing access to HF variable</p></dd>
+
+
 <dt>radius</dt>
 <dd><p>dimension of the radius around the point (same dimension as T.GC, e.g minutes)</p></dd>
+
+
 <dt>T.GC</dt>
 <dd><p>transition matrix T.CG associated to the map pop.map</p></dd>
+
+
 <dt>popurb</dt>
 <dd><p>raster map containing the urban population layer</p></dd>
+
+
 <dt>max.treat.per.CHW.urban</dt>
 <dd><p>max number of people per CHW in urban areas</p></dd>
+
+
 <dt>max.treat.per.CHW.rural</dt>
 <dd><p>max number of people per CHW in rural areas</p></dd>
+
+
 <dt>max.CHW.per.pixel</dt>
 <dd><p>maximum number of CHW that can be placed on the same pixel</p></dd>
+
+
 <dt>directory</dt>
 <dd><p>directory where to store the MPS file</p></dd>
+
+
 <dt>name</dt>
 <dd><p>name of the MPS file</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a MPS file containing the optimisation program</p>
+    
+
+<p>a MPS file containing the optimisation program</p>
     </div>
 
   </div>
@@ -110,7 +131,7 @@ using the lpsolveAPI package for integer programming.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

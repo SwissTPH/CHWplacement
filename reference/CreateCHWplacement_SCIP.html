@@ -56,69 +56,104 @@ using the lpsolveAPI package for integer programming. Relies on the functions CH
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">CreateCHWplacement_SCIP</span><span class="op">(</span>
-  <span class="va">population.raster</span>,
-  <span class="va">friction.raster</span>,
-  <span class="va">access.raster</span>,
-  <span class="va">popurb.raster</span>,
-  <span class="va">shp</span>,
-  <span class="va">filepath</span>,
-  <span class="va">name</span>,
-  <span class="va">buffer</span>,
-  <span class="va">radius</span>,
-  capacity.name <span class="op">=</span> <span class="st">"MSPP"</span>,
-  max.treat.per.CHW.urban <span class="op">=</span> <span class="fl">2500</span>,
-  max.treat.per.CHW.rural <span class="op">=</span> <span class="fl">1000</span>,
-  <span class="va">max.CHW.per.pixel</span>,
-  is.inside <span class="op">=</span> <span class="cn">FALSE</span>,
-  dualitygap <span class="op">=</span> <span class="fl">1</span>,
-  relativegap <span class="op">=</span> <span class="cn">F</span>,
-  SCIP_version <span class="op">=</span> <span class="st">"7.0.3"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">CreateCHWplacement_SCIP</span><span class="op">(</span></span>
+<span>  <span class="va">population.raster</span>,</span>
+<span>  <span class="va">friction.raster</span>,</span>
+<span>  <span class="va">access.raster</span>,</span>
+<span>  <span class="va">popurb.raster</span>,</span>
+<span>  <span class="va">shp</span>,</span>
+<span>  <span class="va">filepath</span>,</span>
+<span>  <span class="va">name</span>,</span>
+<span>  <span class="va">buffer</span>,</span>
+<span>  <span class="va">radius</span>,</span>
+<span>  capacity.name <span class="op">=</span> <span class="st">"MSPP"</span>,</span>
+<span>  max.treat.per.CHW.urban <span class="op">=</span> <span class="fl">2500</span>,</span>
+<span>  max.treat.per.CHW.rural <span class="op">=</span> <span class="fl">1000</span>,</span>
+<span>  <span class="va">max.CHW.per.pixel</span>,</span>
+<span>  is.inside <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  dualitygap <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  relativegap <span class="op">=</span> <span class="cn">F</span>,</span>
+<span>  SCIP_version <span class="op">=</span> <span class="st">"7.0.3"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>population.raster</dt>
 <dd><p>raster map containing population densities</p></dd>
+
+
 <dt>friction.raster</dt>
 <dd><p>raster map containing friction surface</p></dd>
+
+
 <dt>access.raster</dt>
 <dd><p>raster map containing the distance to HF layer</p></dd>
+
+
 <dt>popurb.raster</dt>
 <dd><p>raster map containing the urban population layer (urban pixels show the population in the pixel and the rural pixels are NA). Can be created with <a href="DefineUrban.html">DefineUrban</a>.</p></dd>
+
+
 <dt>shp</dt>
 <dd><p>shapefile of the area of interest</p></dd>
+
+
 <dt>filepath</dt>
 <dd><p>directory where to store the MPS file</p></dd>
+
+
 <dt>name</dt>
 <dd><p>(character) name of the MPS file</p></dd>
+
+
 <dt>buffer</dt>
 <dd><p>buffer around current HF</p></dd>
+
+
 <dt>radius</dt>
 <dd><p>dimension of the radius around the point (same dimension as T.GC, e.g minutes)</p></dd>
+
+
 <dt>capacity.name</dt>
 <dd><p>name (character) given to the capacity definition (for folder naming purposes)</p></dd>
+
+
 <dt>max.treat.per.CHW.urban</dt>
 <dd><p>max number of people per CHW in urban areas</p></dd>
+
+
 <dt>max.treat.per.CHW.rural</dt>
 <dd><p>max number of people per CHW in rural areas</p></dd>
+
+
 <dt>max.CHW.per.pixel</dt>
 <dd><p>maximum number of CHW that can be placed on the same pixel</p></dd>
+
+
 <dt>is.inside</dt>
 <dd><p>whether CHW are placed inside the buffer (if FALSE, they are placed outside)</p></dd>
+
+
 <dt>dualitygap</dt>
 <dd><p>condition of suboptimality acceptance for the solver:
 give an upper bounds of the difference with an hypothetical optimal solution</p></dd>
+
+
 <dt>relativegap</dt>
 <dd><p>if true -&gt; |primal-dual|/MIN(|dual|,|primal|)
 else       |primal-dual|    (more interpretable but less accurate)</p></dd>
+
+
 <dt>SCIP_version</dt>
 <dd><p>version of the SCIP shell downloaded</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a MPS file containing the optimisation program and txt script to run it in SCIP shell</p>
+    
+
+<p>a MPS file containing the optimisation program and txt script to run it in SCIP shell</p>
     </div>
 
   </div>
@@ -133,7 +168,7 @@ else       |primal-dual|    (more interpretable but less accurate)</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -54,37 +54,52 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">PrepareRasterFiles</span><span class="op">(</span>
-  <span class="va">population.raster</span>,
-  <span class="va">friction.raster</span>,
-  <span class="va">shp</span>,
-  <span class="va">buffer</span>,
-  <span class="va">access.raster</span>,
-  <span class="va">popurb.raster</span>,
-  <span class="va">is.inside</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">PrepareRasterFiles</span><span class="op">(</span></span>
+<span>  <span class="va">population.raster</span>,</span>
+<span>  <span class="va">friction.raster</span>,</span>
+<span>  <span class="va">shp</span>,</span>
+<span>  <span class="va">buffer</span>,</span>
+<span>  <span class="va">access.raster</span>,</span>
+<span>  <span class="va">popurb.raster</span>,</span>
+<span>  <span class="va">is.inside</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>population.raster</dt>
 <dd><p>raster map containing population densities</p></dd>
+
+
 <dt>friction.raster</dt>
 <dd><p>raster map containing friction surface</p></dd>
+
+
 <dt>shp</dt>
 <dd><p>shapefile of the area of interest</p></dd>
+
+
 <dt>buffer</dt>
 <dd><p>buffer around current HF</p></dd>
+
+
 <dt>access.raster</dt>
 <dd><p>raster map containing the distance to HF layer</p></dd>
+
+
 <dt>popurb.raster</dt>
 <dd><p>raster map containing the urban population layer (urban pixels show the population in the pixel and the rural pixels are NA). Can be created with <a href="DefineUrban.html">DefineUrban</a>.</p></dd>
+
+
 <dt>is.inside</dt>
 <dd><p>whether CHW are placed inside the buffer (if FALSE, they are placed outside)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a list containing the pre-processed rasters and transition matrix</p>
+    
+
+<p>a list containing the pre-processed rasters and transition matrix</p>
     </div>
 
   </div>
@@ -99,7 +114,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
