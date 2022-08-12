@@ -583,6 +583,103 @@
 				]
 			]
 		}
+	},
+	{
+		"id": "HaitiCHW2022",
+		"type": "article-journal",
+		"abstract": "The national deployment of polyvalent community health workers (CHWs) is a constitutive part of the strategy initiated by the Ministry of Health to accelerate efforts towards universal health coverage in Haiti. Its implementation requires the planning of future recruitment and deployment activities for which mathematical modelling tools can provide useful support by exploring optimised placement scenarios based on access to care and population distribution. We combined existing gridded estimates of population and travel times with optimisation methods to derive theoretical CHW geographical placement scenarios including constraints on walking time and the number of people served per CHW. Four national-scale scenarios that align with total numbers of existing CHWs and that ensure that the walking time for each CHW does not exceed a predefined threshold are compared. The first scenario accounts for population distribution in rural and urban areas only, while the other three also incorporate in different ways the proximity of existing health centres. Comparing these scenarios to the current distribution, insufficient number of CHWs is systematically identified in several departments and gaps in access to health care are identified within all departments. These results highlight current suboptimal distribution of CHWs and emphasize the need to consider an optimal (re-)allocation.",
+		"container-title": "PLOS Global Public Health",
+		"DOI": "10.1371/journal.pgph.0000167",
+		"ISSN": "2767-3375",
+		"issue": "5",
+		"journalAbbreviation": "PLOS Global Public Health",
+		"language": "en",
+		"note": "publisher: Public Library of Science",
+		"page": "e0000167",
+		"source": "PLoS Journals",
+		"title": "Improving access to care and community health in Haiti with optimized community health worker placement",
+		"URL": "https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0000167",
+		"volume": "2",
+		"author": [
+			{
+				"family": "Champagne",
+				"given": "Clara"
+			},
+			{
+				"family": "Rajkumar",
+				"given": "Andrew Sunil"
+			},
+			{
+				"family": "Auxila",
+				"given": "Paul"
+			},
+			{
+				"family": "Perrone",
+				"given": "Giulia"
+			},
+			{
+				"family": "Plötz",
+				"given": "Marvin"
+			},
+			{
+				"family": "Young",
+				"given": "Alyssa"
+			},
+			{
+				"family": "Jazayeri",
+				"given": "Samuel Bazaz"
+			},
+			{
+				"family": "Napier",
+				"given": "Harriet G."
+			},
+			{
+				"family": "Menach",
+				"given": "Arnaud Le"
+			},
+			{
+				"family": "Battle",
+				"given": "Katherine"
+			},
+			{
+				"family": "Amratia",
+				"given": "Punam"
+			},
+			{
+				"family": "Cameron",
+				"given": "Ewan"
+			},
+			{
+				"family": "Alfred",
+				"given": "Jean-Patrick"
+			},
+			{
+				"family": "Deslouches",
+				"given": "Yves-Gaston"
+			},
+			{
+				"family": "Pothin",
+				"given": "Emilie"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					5,
+					17
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					5,
+					10
+				]
+			]
+		}
 	}
 ]
 

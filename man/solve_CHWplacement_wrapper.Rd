@@ -33,7 +33,7 @@ solve_CHWplacement_wrapper(
 
 \item{radius}{dimension of the radius around the point (same dimension as T.GC, e.g minutes)}
 
-\item{capacity.name}{??}
+\item{capacity.name}{name (character) given to the capacity definition (for folder naming purposes)}
 
 \item{popurb.raster}{raster map containing the urban population layer}
 
@@ -51,5 +51,5 @@ solve_CHWplacement_wrapper(
 a MPS file containing the optimisation program
 }
 \description{
-This function tranforms the output of a Gurobi opitimisation into map coordinates
+This function is a wrapper on \strong{solve_CHWplacement} that can control execution time
 }

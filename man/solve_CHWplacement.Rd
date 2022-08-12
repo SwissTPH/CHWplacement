@@ -32,7 +32,7 @@ solve_CHWplacement(
 
 \item{radius}{dimension of the radius around the point (same dimension as T.GC, e.g minutes)}
 
-\item{capacity.name}{??}
+\item{capacity.name}{name (character) given to the capacity definition (for folder naming purposes)}
 
 \item{popurb.raster}{raster map containing the urban population layer}
 

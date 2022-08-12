@@ -11,7 +11,7 @@ vignette: >
 
 This R package contains functions that can be used to compute CHW placement scenarios, based on gridded population surfaces, friction surfaces and additional datasets such as GPS coordinates of existing health facilities.
 
-These functions are based on the CLSCP optimisation programme by @current_storbeck1988. Further details on the methodology can be found in the associated manuscript.
+These functions are based on the CLSCP optimisation programme by @current_storbeck1988. Further details on the methodology can be found in the associated [manuscript](https://doi.org/10.1371/journal.pgph.0000167) (@HaitiCHW2022).
 
 ```{r pressure, echo=FALSE, out.width = '60%'}
 knitr::include_graphics("model_cartoon.PNG")
@@ -28,9 +28,16 @@ The algorithm provides the total number of CHWs required and their GPS positions
 
 
 ## How to use the package
+The package can be installed using the devtools package:  
+
+```{r, eval=FALSE }
+library(devtools)  
+install_github("SwissTPH/CHWplacement")  
+```
+
 
 ### First steps and preparation of model inputs
-First the package needs to be loaded.
+First the package needs to be loaded, with some additional libraries for visualisation.
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -42,7 +49,6 @@ knitr::opts_chunk$set(
 ```{r setup}
 
 library(CHWplacement)
-#library(igraph)
 library(rgeos)
 library(rasterVis)
 library(ggplot2)
@@ -53,9 +59,9 @@ library(cowplot)
                      
  - **population.raster**: a population gridded surface, representing population distribution
  
- - **friction.raster**: a friction surface (for example, the surface by @weiss2020 that can be downloaded from the malariaAtlas R package @malariaatlas_package), representing the difficulty to cross one pixel in the maps (e.g. in minutes to cross one meter)
+ - **friction.raster**: a friction surface (for example, the surface by @weiss2020 that can be downloaded from the malariaAtlas R package (@malariaatlas_package)), representing the difficulty to cross one pixel in the maps (e.g. in minutes to cross one meter)
  
- - **access.raster**: a raster surface indicating areas to be included in the algorithm, e.g. accessibility to health facilities (for example, the surface by @weiss2020 that can be downloaded from the malariaAtlas R package @malariaatlas_package)
+ - **access.raster**: a raster surface indicating areas to be included in the algorithm, e.g. accessibility to health facilities (for example, the surface by @weiss2020 that can be downloaded from the malariaAtlas R package (@malariaatlas_package))
  
  - **popurb.raster**: a raster surface indicating the positioning of urban areas (for example, as derived using the DefineUrban function) 
  
@@ -77,7 +83,7 @@ For this example, we will demonstrate with fictitious data, but the user's data 
   
 ```
 
-The raster file indicating the position of urban areas can be created following the “degree of urbanization approach” described in the 2017 World Bank report -@world_bank_report to define urban and rural areas, with the **DefineUrban** function. The parameter **rururb_cutoff** indicates the minimum population density for each pixel considered as urban. The parameter **min_urbsize** indicates the minimum population in the total area of contiguous selected pixels to be considered as urban. The user can also use any raster file created with another methodology.
+The raster file indicating the position of urban areas can be created following the “degree of urbanization approach” described in the 2017 World Bank report (@world_bank_report) to define urban and rural areas, with the **DefineUrban** function. The parameter **rururb_cutoff** indicates the minimum population density for each pixel considered as urban. The parameter **min_urbsize** indicates the minimum population in the total area of contiguous selected pixels to be considered as urban. The user can also use any raster file created with another methodology.
 
 ```{r }
 
@@ -113,9 +119,9 @@ These elements are combined to provide the minimal number of CHWs and their opti
 
  - **Maximum travel time**: the travel time between the CHW and their assigned inhabitants remains below a certain time (called "radius")
  
- - **Maximium population**: the maximal number of inhabitant per CHWs remains below a certain capacity threshold, that can differ in urban ("max.treat.per.CHW.urban") and rural ("max.treat.per.CHW.rural") areas
+ - **Maximum population**: the maximal number of inhabitant per CHWs remains below a certain capacity threshold, that can differ in urban ("max.treat.per.CHW.urban") and rural ("max.treat.per.CHW.rural") areas
  
- - **Area selection**: the analysis can be restricted to certain areas in the access.raster map via the "buffer" and "is.inside" parameters: for example if access.raster represents the travel time to health facilities in min, the analysis can restricted to areas situated at more than 60 min from any health facility (buffer=60 and is.inside=FALSE), or areas situated at less than 60 min from  from any health facility (buffer=60 and is.inside=TRUE)
+ - **Area selection**: the analysis can be restricted to certain areas in the access.raster map via the "buffer" and "is.inside" parameters: for example if access.raster represents the travel time to health facilities in min, the analysis can restricted to areas situated at more than 60 min from any health facility (buffer=60 and is.inside=FALSE), or areas situated at less than 60 min from any health facility (buffer=60 and is.inside=TRUE)
 
 
 The CHW plan can be defined with the following function:
@@ -137,7 +143,7 @@ CHWanswer=solve_CHWplacement(population.raster=pop.dummy, friction.raster=fric.d
                                         is.inside = FALSE, filepath=".")
 ```
 3 CHWs are needed to cover the area.
-The package returns a new data.frame with one line per assigned CHW, with the associated GPS coordinates (x and y), whether their are positioned in rural area (is.rural=1 in rural areas and 0 in urban areas), and their associated number of people assigned (capacity). The sum of all CHW capacities is above the total population in the area, due to overlapping catchment areas in this example.
+The package returns a new data.frame with one line per assigned CHW, with the associated GPS coordinates (x and y), whether their are positioned in rural areas (is.rural=1 in rural areas and 0 in urban areas), and their associated number of people assigned (capacity). The sum of all CHW capacities is above the total population in the area, due to overlapping catchment areas in this example.
 ```{r }
 CHWanswer
 ```
@@ -160,7 +166,7 @@ gplot(all.rasters$pop.map)+
   coord_equal()
 
 ```
-We can also plot the catchment area of each CHW and see that all population points are covered. These cathcment areas correspond to a distance of 600 min (radius) form the CHW location. The catchment areas do overlap, and in practice, they would need to be adapted individually knowing the local geographical context when CHWs are recruited.
+We can also plot the catchment area of each CHW and see that all population points are covered. These catchment areas correspond to a distance of 600 min (radius) from the CHW location. The catchment areas do overlap, and in practice, they would need to be adapted individually knowing the local geographical context when CHWs are recruited.
 
 ```{r , fig.width = 5, fig.align="center"}
 footprint1=GetFootprintWalkingTime(pos=CHWanswer[1,1:2], radius=600, pop.map=all.rasters$pop.map, T.GC=all.rasters$T.GC)
@@ -182,7 +188,7 @@ gplot(all.rasters$pop.map)+
 
 ### Using the package in practice with large maps
 
-Solving the model with the R software and the lpSolveAPI package can become very computationally intense for the problems to be solved in practice (larger maps and more difficult optimisation constraints). In this context, other softwares can be used, such as @gurobi or SCIP (@scip1, @scip2). 
+Solving the model with the R software and the lpSolveAPI package can become very computationally intense for the problems to be solved in practice (larger maps and more difficult optimisation constraints). In this context, other software can be used, such as @gurobi or SCIP (@scip1, @scip2). 
 
 #### Some limitations
 
@@ -190,21 +196,56 @@ Time limitations and size limitation are caused by the creation and .mps by the 
 For large problems the .mps file creation can be lengthy.
 Additonally, there can't be more than 9 999 999 decision variables, because the name of columns i.e. decision variables in .mps have a limited length (after that threshold, C10000001 and C10000002 become C1000000 which raises error).
 
+#### Using Gurobi
+Gurobi is a commercial whose performance is greater than lpSolveAPI on large problems. The CHW plan can be defined similarly to the previous examples, with the same function:
+
+```{r , eval=FALSE}
+CreateCHWplacement( population.raster=pop.dummy,
+                    friction.raster=fric.dummy,shp=shp.dummy,
+                     name="Gurobitemp", buffer=60, radius=600, capacity.name="",
+                     access.raster=acc.dummy,popurb.raster=urb.dummy,
+                     max.treat.per.CHW.urban=2000, max.treat.per.CHW.rural=1000,
+                     max.CHW.per.pixel=10, is.inside = FALSE, filepath=".")
+
+
+```
+This function will create a file .mps, stored in the repository indicated by filepath. This files contains the description of the optimization problem for Gurobi.  
+
+It can be solved by Gurobi following Gurobi's documentation. For example, in the command line, the user can use the following command: 
+
+```{r , eval=FALSE}
+gurobi_cl MIPGapAbs=3  ResultFile=mypath/temp_solution.sol mypath/myfile.mps
+```
+
+In this example, the option **MIPGapAbs** enables the user to change the error tolerance for the algorithm convergence ("Gurobi gap") and hence balance the precision of the solution with computational time. More details and other options can be found in [Gurobi's documentation](https://www.gurobi.com/documentation/9.5/refman/mip_models.html).  
+
+After running Gurobi, a file temp_solution.sol should be created in the chosen folder and the next step is to decode it. Make sure you use exactly the same input rasters as the ones used in **CreateCHWplacement**. 
+
+
+```{r, eval=FALSE}
+
+CHWanswer = read_CHWplacement_sol(  population.raster = pop.dummy,
+                              friction.raster  = fric.dummy,
+                              access.raster    = acc.dummy,
+                              popurb.raster    = urb.dummy,
+                              shp = shp.dummy,
+                              name = "Gurobitemp" ,
+                              filepath = ".",
+                              buffer=60, is.inside = F, radius=600, capacity.name = "",
+                              write = F  # creates a CSV file of the results
+                              )
+```
+
+This will return a dataframe file containing the CHW positions (it can be saved as .csv file with the option write=T).
 
 #### Using SCIP
 
 SCIP is an open source solver whose performance is greater than lpSolveAPI on large problems. It needs to be downloaded and installed [here](https://www.scipopt.org/index.php#download). You can indicate which version of SCIP was downloaded as follows:
 
 ```{r SCIP version for windows users}
-
-############### CHANGE THAT: ##################################
-
 SCIP_version = "7.0.3"
-
-###############################################################
-
-
 ```
+
 The CHW plan can be defined similarly to the previous examples, with the following function:
 
 ```{r }
@@ -220,18 +261,19 @@ CreateCHWplacement_SCIP( population.raster = pop.dummy,
                        buffer = 60, radius = 600, capacity.name="",
                        max.treat.per.CHW.urban = 2000, max.treat.per.CHW.rural = 1000,
                        max.CHW.per.pixel = 10, is.inside = FALSE,
-                       dualitygap = 0,           # a maximum error CHW because global solutions
-                       relativegap = F,          # sometimes can't be caculated in a resonable duration
+                       dualitygap = 0,
+                       relativegap = F,
                        SCIP_version = SCIP_version)
 
 ```
 This function will create a file called SCIPtemp.mps, stored in the repository indicated by filepath. This files contains the description of the optimization problem.   
 
-Then it will create a .txt file with the basic script you need in order to calculate the solution by using SCIP shell. The two additional options (dualitygap and relativegap are specific SCIP parameters as detailed in the function documentation).
+Then it will create a .txt file with the basic script you need in order to calculate the solution by using SCIP shell. The two additional options (dualitygap and relativegap are specific SCIP parameters as detailed in the function documentation). These parameters enable the user to change the error tolerance for the algorithm convergence ("Gurobi gap") and hence balance the precision of the solution with computational time.
 
 ```{r , comment=''}
 cat(readLines('clscp_600_buffer60_capa/SCIP_script_SCIPtemp.txt'), sep = '\n')
 ```
+
 This text file contains two parts. The first part (Manual use of SCIP) gives the commands to type in the SCIP command line to solve the problem. The second part (Automated use of SCIP version 7.0.3( for Windows users )) gives a script that can be directly copy-pasted in the Windows powershell to solve the optimisation problem with SCIP. This will create a .sol file in the same repository, containing the solution of the optimisation problem.   
 
 If you already have a .mps file, you can use the function **CreateScriptSCIP**, which only creates the .txt file. It can be useful if you want to recreate scripts for an older .mps file.
@@ -341,10 +383,6 @@ gplot(all.rasters$pop.map)+
   coord_equal()
 
 ```
-
-
-#### Using Gurobi
-The .mps file created previously can also be solved with Gurobi, and the solution will be provided as a .sol file. This .sol file can be read with R using the function **read_CHWplacement_sol**.
 
 
 ## References

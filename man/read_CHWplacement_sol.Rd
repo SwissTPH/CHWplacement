@@ -26,7 +26,7 @@ read_CHWplacement_sol(
 
 \item{shp}{shapefile of the area of interest}
 
-\item{name}{name (character) of the MPS file}
+\item{name}{name (character) of the .sol file}
 
 \item{buffer}{buffer around current HF}
 
