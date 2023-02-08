@@ -33,6 +33,3 @@ test_that("test urban area definition", {
   names(pop.dummy.3)="pop"
   expect_equal(urb3, pop.dummy.3, label = "test when only 1 panel is urban, due to cutoff and urbsize")
 })
-
-
-

@@ -41,7 +41,6 @@ DefineUrban=function(population.raster, rururb_cutoff=300, min_urbsize=2000){
 #' @importFrom scales percent
 #'
 #' @return A SpatRaster object similar to population.raster in which all non-urban pixels are masked (i.e. NA), or a categorized raster where 0 = Rural and 1 = Urban if mask = TRUE.
-#' @export
 #'
 define_urban <- function(population_raster, rururb_cutoff = 300, min_urbsize = 2000, directions = 8, mask = FALSE, verbose = FALSE) {
   # A terra-based implementation of https://github.com/SwissTPH/CHWplacement/blob/main/R/defineUrbanRaster.R
