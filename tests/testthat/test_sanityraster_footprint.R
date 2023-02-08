@@ -24,6 +24,11 @@ test_that("sanity of raster importation", {
   raster::crs(pop.expected)=newproj
   names(pop.expected)=""
 
+  # add srs field in raster
+  pop.expected@srs=all.raster.dummy$pop.map@srs
+  acc.dummy@srs=all.raster.dummy$pop.map@srs
+  urb.dummy@srs=all.raster.dummy$pop.map@srs
+
   expect_equal(all.raster.dummy$pop.map , pop.expected, label = "pop")
   expect_equal(all.raster.dummy$access.map , acc.dummy, label = "access")
   expect_equal(all.raster.dummy$urb.map , urb.dummy, label = "urb")
