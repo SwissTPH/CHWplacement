@@ -2,7 +2,7 @@
 % Please edit documentation in R/defineUrbanRaster.R
 \name{define_urban}
 \alias{define_urban}
-\title{Define urban-only pixels.}
+\title{Defines rural and urban areas based on population density, using the terra package}
 \usage{
 define_urban(
   population_raster,
@@ -30,5 +30,9 @@ define_urban(
 A SpatRaster object similar to population.raster in which all non-urban pixels are masked (i.e. NA), or a categorized raster where 0 = Rural and 1 = Urban if mask = TRUE.
 }
 \description{
-Define urban-only pixels.
+This function defines urban areas as those with a population density
+higher than rururb_cutoff per pixel. Urban areas are also contiguous and have a minimal
+total population equal to min_urbsize. The methodology is derived from \url{http://documents.worldbank.org/curated/en/709121516634280180/pdf/122880-V1-WP-P156561-OUO-9-FINAL-ENGLISH.pdf}.
+This function differs from \emph{DefineUrban} in that the \emph{terra} package is used (instead of \emph{raster}).
+The results between the 2 functions may differ due to different handling of diagonal values in the \emph{terra} and \emph{raster} packages.
 }
