@@ -16,7 +16,8 @@ read_CHWplacement_sol(
   popurb.raster,
   is.inside,
   filepath,
-  write = F
+  write = F,
+  check = TRUE
 )
 }
 \arguments{
@@ -43,6 +44,8 @@ read_CHWplacement_sol(
 \item{filepath}{directory where to store the MPS file}
 
 \item{write}{if TRUE, the output is written as a csv file in filepath}
+
+\item{check}{Run sanity checks?}
 }
 \value{
 a MPS file containing the optimisation program

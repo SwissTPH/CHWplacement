@@ -115,6 +115,7 @@ CreateCHWplacement=function(population.raster, friction.raster,shp,
 #' @param write if TRUE, the output is written as a csv file in filepath
 #' @param name  name (character) of the .sol file
 #' @param capacity.name name (character) given to the capacity definition (for folder naming purposes)
+#' @param check Run sanity checks?
 #'
 #' @return a MPS file containing the optimisation program
 #' @export
@@ -122,7 +123,7 @@ CreateCHWplacement=function(population.raster, friction.raster,shp,
 read_CHWplacement_sol=function(population.raster, friction.raster,shp,
                        name, buffer, radius, capacity.name,
                        access.raster,popurb.raster,
-                       is.inside, filepath, write=F){
+                       is.inside, filepath, write=F, check = TRUE){
 
   # import file
   fileName=file.path(filepath,paste0("clscp_",radius,"_buffer",buffer,"_capa",capacity.name,"/", name,".sol"))
@@ -154,7 +155,10 @@ read_CHWplacement_sol=function(population.raster, friction.raster,shp,
   my.solution2$is.CHW=as.numeric(as.character(my.solution2$is.CHW))
 
   # sanity check: does the sum of CHW corresponds to output of objective
-  if(abs(sum(my.solution2$is.CHW)-total.CHW) >0.001) stop("error reading file") # test coherence
+  if(check == TRUE) {
+    if(abs(sum(my.solution2$is.CHW)-total.CHW) >0.001) stop("error reading file") # test coherence
+  }
+
 
   my.solution2$index2=as.numeric(sub("C","",my.solution2$index))
   if (all(my.solution2$is.CHW<2) ){
